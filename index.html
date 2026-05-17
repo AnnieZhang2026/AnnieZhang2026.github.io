@@ -733,7 +733,7 @@ const i18n = {
     skill_cat3: 'AI Tools', skill_cat4: 'Collaboration',
     contact_desc: 'Actively seeking product/AI internship roles. If you have an opportunity or just want to chat, feel free to reach out!',
     form_name: 'Name', form_email: 'Email', form_msg: 'Message', form_send: 'Send Message →',
-    typing_roles: ['Product Builder', 'AI Enthusiast', 'SEU MSc Student'],
+    typing_roles: ['Product Builder', 'AI Enthusiast', 'SEU MSc Student', 'ENFJ-A'],
     btn_github: '⌥ GitHub',
     github_modal_label: 'Open Source',
     github_modal_title: 'GitHub Repos',
@@ -810,7 +810,7 @@ const i18n = {
     skill_cat3: 'AI 工具', skill_cat4: '办公协作',
     contact_desc: '正在寻找产品/AI方向实习岗位。如有机会或想交流，欢迎联系！',
     form_name: '姓名', form_email: '邮箱', form_msg: '留言', form_send: '发送消息 →',
-    typing_roles: ['产品构建者', 'AI爱好者', '东南大学硕士在读'],
+    typing_roles: ['产品构建者', 'AI爱好者', '东南大学硕士在读', 'ENFJ-A'],
     btn_github: '⌥ GitHub',
     github_modal_label: '开源项目',
     github_modal_title: 'GitHub 仓库',
@@ -1011,7 +1011,7 @@ function renderGithubRepos() {
   const canvas = document.getElementById('splash-canvas');
   if (!canvas) return;
 
-  const COLOR = '#e06010';
+  const COLOR = '#e8915c';
   const SPLAT_RADIUS = 0.08;
   const SPLAT_FORCE = 2000;
   const CURL = 3;
@@ -1378,7 +1378,7 @@ function renderGithubRepos() {
 })();
 
 // ── INIT ──
-const savedTheme = localStorage.getItem('tw-theme') || 'dark';
+const savedTheme = localStorage.getItem('tw-theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
 document.getElementById('theme-btn').textContent = savedTheme === 'dark' ? '☀' : '☾';
 
