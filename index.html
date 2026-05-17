@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  Personal Portfolio — Zhang Zhixuan                          ║
+  ║  Built on teemoweng.github.io/template                       ║
+  ║  SplashCursor adapted from reactbits.dev                     ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张芷萱 | 产品 · AI · 战略 Portfolio</title>
+<meta name="description" content="张芷萱的个人作品集 — 产品运营、数据分析与AI产品经验。" />
+<meta property="og:title" content="张芷萱 | 产品 · AI · 战略 Portfolio" />
+<meta property="og:description" content="张芷萱的个人作品集 — 产品运营、数据分析与AI产品经验。" />
+<meta property="og:url" content="https://yourusername.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://yourusername.github.io/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="张芷萱 | 产品 · AI · 战略 Portfolio" />
+<meta name="twitter:description" content="张芷萱的个人作品集 — 产品运营、数据分析与AI产品经验。" />
+<meta name="twitter:image" content="https://yourusername.github.io/og-cover.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23231c15'/><text x='16' y='25' font-family='Georgia,serif' font-size='23' font-style='italic' font-weight='700' fill='%23e8782a' text-anchor='middle'>Z</text></svg>">
+
+<style>
+:root {
+  --bg: #fefaf5;
+  --bg2: #faf3e8;
+  --bg3: #f0e4d3;
+  --fg: #1c1208;
+  --fg2: #7a5c3e;
+  --fg3: #c4a882;
+  --accent: oklch(62% 0.17 40);
+  --accent2: oklch(52% 0.17 40);
+  --border: rgba(210,140,70,0.18);
+  --card: rgba(255,255,255,0.65);
+  --card-hover: rgba(255,248,238,0.95);
+  --shadow: 0 8px 32px rgba(180,100,30,0.10);
+  --radius: 12px;
+}
+[data-theme="dark"] {
+  --bg: #1a1410;
+  --bg2: #231c15;
+  --bg3: #2d241a;
+  --fg: #f5ede0;
+  --fg2: #c4a882;
+  --fg3: #7a5c3e;
+  --accent: oklch(68% 0.18 40);
+  --accent2: oklch(58% 0.18 40);
+  --border: rgba(210,140,70,0.20);
+  --card: rgba(255,255,255,0.04);
+  --card-hover: rgba(255,200,120,0.08);
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  transition: background 0.4s, color 0.4s;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 60px;
+  background: rgba(254,250,245,0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s;
+}
+[data-theme="dark"] nav { background: rgba(26,20,16,0.82); }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--accent); letter-spacing: 0.05em; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { color: var(--fg2); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-controls { display: flex; align-items: center; gap: 12px; }
+.btn-icon { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--fg2); cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+.btn-icon:hover { border-color: var(--accent); color: var(--accent); }
+.lang-toggle { display: flex; gap: 4px; background: var(--bg3); border-radius: 8px; padding: 3px; }
+.lang-btn { padding: 4px 10px; border-radius: 5px; font-size: 11px; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--fg3); transition: all 0.2s; letter-spacing: 0.05em; font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+.lang-btn.active { background: var(--accent); color: #000; }
+
+/* ── HERO ── */
+#hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+canvas#particles { position: absolute; inset: 0; z-index: 0; }
+.hero-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 340px; gap: 80px; align-items: center; max-width: 1100px; width: 100%; padding: 0 40px; }
+.hero-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; padding: 4px 12px; border: 1px solid var(--border); border-radius: 99px; }
+.hero-greeting { font-size: 16px; color: var(--fg2); margin-bottom: 8px; font-weight: 400; }
+.hero-name { font-size: clamp(40px, 6vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 20px; }
+.hero-name span { color: var(--accent); }
+.hero-typing { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: var(--fg2); margin-bottom: 28px; min-height: 24px; }
+.cursor { display: inline-block; width: 2px; height: 1em; background: var(--accent); margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.hero-desc { font-size: 15px; line-height: 1.75; color: var(--fg2); max-width: 520px; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { padding: 12px 28px; background: var(--accent); color: #000; border: none; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+.btn-outline { padding: 12px 28px; background: transparent; border: 1px solid var(--border); color: var(--fg); border-radius: 8px; font-weight: 500; font-size: 14px; cursor: pointer; font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-avatar { display: flex; align-items: center; justify-content: center; }
+.avatar-wrap { position: relative; width: 300px; height: 300px; }
+.avatar-wrap::before { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid var(--accent); opacity: 0.3; animation: pulse-ring 3s ease-in-out infinite; }
+.avatar-wrap::after { content: ''; position: absolute; inset: -20px; border-radius: 50%; border: 1px solid var(--accent); opacity: 0.1; animation: pulse-ring 3s ease-in-out infinite 0.5s; }
+@keyframes pulse-ring { 0%,100%{transform:scale(1);opacity:0.3} 50%{transform:scale(1.04);opacity:0.15} }
+.avatar-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 2px solid var(--border); }
+.avatar-badge { position: absolute; bottom: 8px; right: 8px; background: var(--accent); color: #000; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px; white-space: nowrap; }
+
+.hero-scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--fg3); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; animation: float 2s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+.scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--accent), transparent); }
+
+/* ── SECTIONS ── */
+section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+.section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 48px; color: var(--fg); }
+.section-title span { color: var(--accent); }
+.section-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 500; color: var(--fg2); letter-spacing: 0.04em; margin-bottom: 44px; }
+
+/* ── NEWS ── */
+.news-list { display: flex; flex-direction: column; gap: 0; }
+.news-item { display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: start; padding: 20px 0; border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(20px); transition: all 0.5s; }
+.news-item.visible { opacity: 1; transform: none; }
+.news-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--fg3); padding-top: 3px; }
+.news-text { font-size: 15px; line-height: 1.6; color: var(--fg2); }
+.news-text strong { color: var(--fg); }
+
+/* ── PROJECTS ── */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.project-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.3s; cursor: pointer; opacity: 0; transform: translateY(24px); }
+.project-card.visible { opacity: 1; transform: none; }
+.project-card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-4px); box-shadow: var(--shadow); }
+.project-img-placeholder { width: 100%; height: 180px; background: var(--bg3); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; position: relative; overflow: hidden; }
+.project-img-placeholder::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255,255,255,0.015) 8px, rgba(255,255,255,0.015) 16px); }
+.project-img-placeholder-icon { font-size: 32px; z-index: 1; }
+.project-img-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--fg3); z-index: 1; }
+.project-badge { position: absolute; top: 12px; left: 12px; background: var(--accent); color: #000; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.05em; }
+.project-body { padding: 20px; }
+.project-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.project-sub { font-size: 12px; color: var(--fg3); margin-bottom: 10px; font-family: 'JetBrains Mono', monospace; }
+.project-desc { font-size: 13px; color: var(--fg2); line-height: 1.6; margin-bottom: 16px; }
+.project-links { display: flex; gap: 8px; }
+.project-link { font-size: 12px; color: var(--accent); text-decoration: none; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+.project-link:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+
+/* ── LEARN & EXPLORE ── */
+#learn-explore { }
+.learn-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.learn-col-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.vibe-list { display: flex; flex-direction: column; gap: 12px; }
+.vibe-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; cursor: pointer; transition: all 0.3s; opacity: 0; transform: translateY(16px); position: relative; overflow: hidden; }
+.vibe-card.visible { opacity: 1; transform: none; }
+.vibe-card:hover { border-color: var(--accent); background: var(--card-hover); }
+.vibe-card.active { border-color: var(--accent); background: var(--card-hover); }
+.vibe-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.vibe-card-info { flex: 1; min-width: 0; }
+.vibe-card-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.vibe-card-desc { font-size: 12px; color: var(--fg3); line-height: 1.5; }
+.vibe-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+.vibe-tag { font-size: 10px; padding: 3px 8px; background: var(--bg3); color: var(--fg2); border-radius: 4px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.03em; }
+.vibe-card-preview { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.vibe-card.active .vibe-card-preview { display: block; }
+.vibe-preview-img { width: 100%; height: 160px; background: var(--bg3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 48px; margin-bottom: 10px; border: 1px solid var(--border); }
+.vibe-preview-desc { font-size: 13px; color: var(--fg2); line-height: 1.6; margin-bottom: 10px; }
+.vibe-open-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #000; background: var(--accent); padding: 6px 14px; border-radius: 6px; text-decoration: none; font-weight: 600; font-family: 'JetBrains Mono', monospace; transition: all 0.2s; border: none; cursor: pointer; }
+.vibe-open-btn:hover { background: var(--accent2); }
+.vibe-expand-icon { font-size: 18px; color: var(--fg3); transition: transform 0.3s; flex-shrink: 0; }
+.vibe-card.active .vibe-expand-icon { transform: rotate(180deg); color: var(--accent); }
+
+.xhs-card-list { display: flex; flex-direction: column; gap: 14px; }
+.xhs-ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; display: flex; gap: 14px; transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; opacity: 0; transform: translateY(16px); }
+.xhs-ref-card.visible { opacity: 1; transform: none; }
+.xhs-ref-card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
+.xhs-ref-thumb { width: 72px; height: 72px; border-radius: 8px; background: var(--bg3); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 28px; border: 1px solid var(--border); }
+.xhs-ref-body { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.xhs-ref-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+.xhs-ref-meta { font-size: 11px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; }
+
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, var(--accent), transparent); }
+.tl-item { position: relative; padding-bottom: 40px; opacity: 0; transform: translateX(-16px); transition: all 0.5s; }
+.tl-item.visible { opacity: 1; transform: none; }
+.tl-item::before { content: ''; position: absolute; left: -36px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); transition: background 0.3s; }
+.tl-item:hover::before { background: var(--accent); }
+.tl-period { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 4px; letter-spacing: 0.05em; }
+.tl-role { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+.tl-company { font-size: 14px; color: var(--fg2); margin-bottom: 6px; }
+.tl-desc { font-size: 13px; color: var(--fg3); line-height: 1.6; }
+
+/* ── EDUCATION ── */
+.edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.edu-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all 0.3s; opacity: 0; transform: translateY(20px); }
+.edu-card.visible { opacity: 1; transform: none; }
+.edu-card:hover { border-color: var(--accent); background: var(--card-hover); }
+.edu-period { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 8px; }
+.edu-school { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.edu-degree { font-size: 13px; color: var(--fg2); margin-bottom: 6px; }
+.edu-honors { font-size: 11px; color: var(--fg3); line-height: 1.5; }
+
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.skill-group { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; opacity: 0; transform: translateY(20px); transition: all 0.4s; }
+.skill-group.visible { opacity: 1; transform: none; }
+.skill-group:hover { border-color: var(--accent); }
+.skill-cat { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 12px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag { font-size: 12px; padding: 4px 10px; background: var(--bg3); color: var(--fg2); border-radius: 6px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; }
+
+/* ── CONTACT ── */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-info p { color: var(--fg2); line-height: 1.75; margin-bottom: 28px; font-size: 15px; }
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link { display: flex; align-items: center; gap: 12px; color: var(--fg2); text-decoration: none; font-size: 14px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s; }
+.contact-link:hover { border-color: var(--accent); color: var(--accent); }
+.contact-link-icon { width: 20px; text-align: center; color: var(--accent); }
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 12px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; }
+.form-input, .form-textarea { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: var(--fg); font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; transition: border-color 0.2s; outline: none; }
+.form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+.form-textarea { min-height: 120px; resize: vertical; }
+.form-submit { padding: 12px; background: var(--accent); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: all 0.2s; margin-top: 4px; }
+.form-submit:hover { background: var(--accent2); }
+
+/* ── FOOTER ── */
+footer { border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; color: var(--fg3); font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+footer span { color: var(--accent); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── GITHUB MODAL ── */
+#github-modal { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 20px; }
+#github-modal.open { display: flex; }
+.github-panel { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; width: 100%; max-width: 640px; max-height: 85vh; overflow-y: auto; box-shadow: var(--shadow); }
+.github-panel-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 24px 24px 16px; position: sticky; top: 0; background: var(--bg2); border-radius: 16px 16px 0 0; border-bottom: 1px solid var(--border); }
+.github-repos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 20px 24px; }
+.github-repo-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 8px; transition: all 0.2s; }
+.github-repo-card:hover { border-color: var(--accent); background: var(--card-hover); }
+.github-repo-name { font-size: 14px; font-weight: 600; color: var(--fg); font-family: 'JetBrains Mono', monospace; }
+.github-repo-desc { font-size: 12px; color: var(--fg2); line-height: 1.5; flex: 1; }
+.github-repo-meta { display: flex; gap: 8px; align-items: center; }
+.github-lang-badge { font-size: 11px; padding: 2px 8px; background: var(--bg3); color: var(--accent); border-radius: 4px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; }
+.github-stars { font-size: 11px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; }
+.github-repo-links { display: flex; gap: 6px; margin-top: 4px; }
+.github-link-code { font-size: 12px; color: var(--accent); text-decoration: none; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+.github-link-code:hover { border-color: var(--accent); }
+.github-link-live { font-size: 12px; color: #000; text-decoration: none; padding: 4px 10px; background: var(--accent); border-radius: 6px; font-weight: 600; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
+.github-link-live:hover { background: var(--accent2); }
+.github-panel-footer { text-align: center; padding: 0 24px 20px; }
+.github-footer-link { font-size: 12px; color: var(--fg3); text-decoration: none; font-family: 'JetBrains Mono', monospace; transition: color 0.2s; }
+.github-footer-link:hover { color: var(--accent); }
+.github-status { text-align: center; padding: 40px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 0 20px; text-align: center; }
+  .hero-avatar { order: -1; }
+  .hero-actions { justify-content: center; }
+  .hero-desc { margin: 0 auto 36px; }
+  section { padding: 60px 20px; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .learn-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .github-repos-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">zx<span style="color:var(--fg3)">.</span>dev</div>
+  <ul class="nav-links">
+    <li><a href="#news" data-i18n="nav_news">News</a></li>
+    <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+    <li><a href="#learn-explore" data-i18n="nav_learn">Learn</a></li>
+    <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+    <li><a href="#education" data-i18n="nav_education">Education</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-controls">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中</button>
+    </div>
+    <button class="btn-icon" onclick="toggleTheme()" title="Toggle theme" id="theme-btn">☀</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-tag" data-i18n="hero_tag">产品 · AI · 战略</div>
+      <h1 class="hero-name" data-i18n="hero_name"><span>Hi</span>，我是<span>张芷萱</span></h1>
+      <div class="hero-typing"><span id="typing-text"></span><span class="cursor"></span></div>
+      <p class="hero-desc" data-i18n="hero_desc">
+        东南大学会计硕士在读，拥有互联网产品实习经验（SHEIN、得物），热衷于探索新事物，灵感与美感同时在线，渴望改变产品格局，从用户视角出发，传递世界的美好。
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#" onclick="downloadResume()" data-i18n="btn_resume">↓ 下载简历</a>
+        <a class="btn-outline" href="#contact" data-i18n="btn_contact">联系我</a>
+        <button type="button" class="btn-outline" onclick="openGithubModal()" data-i18n="btn_github">⌥ GitHub</button>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <div class="avatar-wrap">
+        <img src="avatar.jpg" alt="张芷萱">
+        <div class="avatar-badge" data-i18n="avatar_badge">@ 东南大学</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span data-i18n="scroll_hint">scroll</span>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-label" data-i18n="section_news">Latest</div>
+  <h2 class="section-title reveal">What's <span>New</span></h2>
+  <div class="news-list">
+    <div class="news-item">
+      <div class="news-date">2026.06</div>
+      <div class="news-text" data-i18n="news_1">🔍 正在积极寻找<strong>产品/AI方向实习岗位</strong>，期待新的机遇与挑战。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2026.01</div>
+      <div class="news-text" data-i18n="news_2">🌍 加入 <strong>SHEIN Global Marketing</strong>，担任落地页产品实习生。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2025.09</div>
+      <div class="news-text" data-i18n="news_3">🎓 入读<strong>东南大学经济管理学院</strong>会计专业硕士。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2024.11</div>
+      <div class="news-text" data-i18n="news_4">🤖 加入<strong>得物商品研究中心</strong>，担任产品运营实习生，负责客服机器人及舆情项目。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2023.10</div>
+      <div class="news-text" data-i18n="news_5">🏆 获<strong>全国高校商业精英挑战赛品牌策划竞赛国家级二等奖</strong>（团队负责人）。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2022.09</div>
+      <div class="news-text" data-i18n="news_6">🚀 启动小红书个人账号<strong>「桃柒」</strong>，从0到1万+粉丝，验证内容产品化路径。</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS (placeholder for vibe coding) -->
+<section id="projects">
+  <div class="section-label" data-i18n="section_projects">Work</div>
+  <h2 class="section-title reveal">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div style="position:relative;">
+        <div class="project-img-placeholder">
+          <div class="project-badge" data-i18n="proj1_badge">Coming Soon</div>
+          <div class="project-img-placeholder-icon">🛠️</div>
+          <div class="project-img-label">project preview</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-title" data-i18n="proj1_title">Vibe Coding 项目一</div>
+        <div class="project-sub" data-i18n="proj1_sub">工具：Claude Code · Figma · GitHub</div>
+        <div class="project-desc" data-i18n="proj1_desc">即将上线的 vibe coding 作品，敬请期待。</div>
+        <div class="project-links">
+          <span class="project-link" data-i18n="proj1_link">即将开放</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div style="position:relative;">
+        <div class="project-img-placeholder">
+          <div class="project-badge" data-i18n="proj2_badge">Coming Soon</div>
+          <div class="project-img-placeholder-icon">✨</div>
+          <div class="project-img-label">project preview</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-title" data-i18n="proj2_title">Vibe Coding 项目二</div>
+        <div class="project-sub" data-i18n="proj2_sub">工具：Trae · VSCode · Vercel</div>
+        <div class="project-desc" data-i18n="proj2_desc">又一个创意项目，正在构建中。</div>
+        <div class="project-links">
+          <span class="project-link" data-i18n="proj2_link">即将开放</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div style="position:relative;">
+        <div class="project-img-placeholder">
+          <div class="project-badge" data-i18n="proj3_badge">Coming Soon</div>
+          <div class="project-img-placeholder-icon">🚀</div>
+          <div class="project-img-label">project preview</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-title" data-i18n="proj3_title">Vibe Coding 项目三</div>
+        <div class="project-sub" data-i18n="proj3_sub">工具：AI · NoCode · API</div>
+        <div class="project-desc" data-i18n="proj3_desc">更多探索，更多可能。</div>
+        <div class="project-links">
+          <span class="project-link" data-i18n="proj3_link">即将开放</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN & EXPLORE -->
+<section id="learn-explore">
+  <div class="section-label" data-i18n="section_learn">Learn & Explore</div>
+  <h2 class="section-title reveal">Learn & Explore</h2>
+  <div class="learn-wrap">
+    <!-- Left: Vibe Coding Projects -->
+    <div>
+      <div class="learn-col-title" data-i18n="learn_left_title">🛠️ Vibe Coding 作品</div>
+      <div class="vibe-list">
+        <div class="vibe-card" onclick="toggleVibeCard(this)">
+          <div class="vibe-card-header">
+            <div class="vibe-card-info">
+              <div class="vibe-card-title" data-i18n="vibe1_title">个人作品集网站</div>
+              <div class="vibe-card-desc" data-i18n="vibe1_desc">你现在看到的这个网站，基于模板 + AI 协作构建</div>
+            </div>
+            <span class="vibe-expand-icon">▸</span>
+          </div>
+          <div class="vibe-card-tags">
+            <span class="vibe-tag">Claude Code</span>
+            <span class="vibe-tag">HTML/CSS</span>
+            <span class="vibe-tag">GitHub Pages</span>
+          </div>
+          <div class="vibe-card-preview">
+            <div class="vibe-preview-img">🌐</div>
+            <div class="vibe-preview-desc" data-i18n="vibe1_preview">使用 Claude Code 从模板出发，逐步定制配色、内容、动效，完成从零到部署的全流程。</div>
+            <a class="vibe-open-btn" href="#" target="_blank" data-i18n="vibe1_btn">打开项目 ↗</a>
+          </div>
+        </div>
+        <div class="vibe-card" onclick="toggleVibeCard(this)">
+          <div class="vibe-card-header">
+            <div class="vibe-card-info">
+              <div class="vibe-card-title" data-i18n="vibe2_title">待定项目二</div>
+              <div class="vibe-card-desc" data-i18n="vibe2_desc">下一个 vibe coding 作品，想法酝酿中</div>
+            </div>
+            <span class="vibe-expand-icon">▸</span>
+          </div>
+          <div class="vibe-card-tags">
+            <span class="vibe-tag">Figma</span>
+            <span class="vibe-tag">Trae</span>
+            <span class="vibe-tag">Vercel</span>
+          </div>
+          <div class="vibe-card-preview">
+            <div class="vibe-preview-img">💡</div>
+            <div class="vibe-preview-desc" data-i18n="vibe2_preview">新的创意即将到来，敬请期待。</div>
+            <a class="vibe-open-btn" href="#" target="_blank" data-i18n="vibe2_btn">打开项目 ↗</a>
+          </div>
+        </div>
+        <div class="vibe-card" onclick="toggleVibeCard(this)">
+          <div class="vibe-card-header">
+            <div class="vibe-card-info">
+              <div class="vibe-card-title" data-i18n="vibe3_title">待定项目三</div>
+              <div class="vibe-card-desc" data-i18n="vibe3_desc">更多可能性，持续探索中</div>
+            </div>
+            <span class="vibe-expand-icon">▸</span>
+          </div>
+          <div class="vibe-card-tags">
+            <span class="vibe-tag">AI</span>
+            <span class="vibe-tag">NoCode</span>
+            <span class="vibe-tag">GitHub</span>
+          </div>
+          <div class="vibe-card-preview">
+            <div class="vibe-preview-img">🔮</div>
+            <div class="vibe-preview-desc" data-i18n="vibe3_preview">探索 AI + NoCode 的无限可能。</div>
+            <a class="vibe-open-btn" href="#" target="_blank" data-i18n="vibe3_btn">打开项目 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right: Xiaohongshu Learning Notes -->
+    <div>
+      <div class="learn-col-title" data-i18n="learn_right_title">📕 小红书 · Vibe Coding 学习心得</div>
+      <div class="xhs-card-list">
+        <a class="xhs-ref-card" href="https://xhslink.com/m/AXVx0Fp4bm4" target="_blank" rel="noopener">
+          <div class="xhs-ref-thumb">📝</div>
+          <div class="xhs-ref-body">
+            <div class="xhs-ref-title" data-i18n="xhs1_title">Vibe Coding 入门笔记：如何用 AI 打造你的第一个网页</div>
+            <div class="xhs-ref-meta" data-i18n="xhs1_meta">小红书 · 桃柒</div>
+          </div>
+        </a>
+        <a class="xhs-ref-card" href="https://xhslink.com/m/AXVx0Fp4bm4" target="_blank" rel="noopener">
+          <div class="xhs-ref-thumb">🎨</div>
+          <div class="xhs-ref-body">
+            <div class="xhs-ref-title" data-i18n="xhs2_title">设计师转型产品：我的工具链分享</div>
+            <div class="xhs-ref-meta" data-i18n="xhs2_meta">小红书 · 桃柒</div>
+          </div>
+        </a>
+        <a class="xhs-ref-card" href="https://xhslink.com/m/AXVx0Fp4bm4" target="_blank" rel="noopener">
+          <div class="xhs-ref-thumb">🚀</div>
+          <div class="xhs-ref-body">
+            <div class="xhs-ref-title" data-i18n="xhs3_title">从 0 到 1 万粉丝：内容产品化的实践与思考</div>
+            <div class="xhs-ref-meta" data-i18n="xhs3_meta">小红书 · 桃柒</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label" data-i18n="section_exp">Career</div>
+  <h2 class="section-title reveal">Experience <span>Timeline</span></h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-period">2026.01 – 2026.04</div>
+      <div class="tl-role" data-i18n="exp1_role">落地页产品实习生</div>
+      <div class="tl-company">SHEIN · Global Marketing</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">2024.11 – 2025.02</div>
+      <div class="tl-role" data-i18n="exp2_role">产品运营实习生 · 商品研究中心</div>
+      <div class="tl-company">上海得物信息集团有限公司</div>
+      <div class="tl-desc" data-i18n="exp2_desc">客服机器人项目：精准定位用户痛点，推动 COACH 品牌客服解决率提升 10.2%，客诉率下降 8.5%。科普内容搭建：自主设计图文模板及发布 SOP，Q4 累计发布 73 篇内容，总曝光 43.4 万+。舆情跟踪：设计舆情分级标准与闭环流程，Q4 累计解决舆情 1679 条，环比下降 38%。</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label" data-i18n="section_edu">Academia</div>
+  <h2 class="section-title reveal">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-period">2025.09 – 至今</div>
+      <div class="edu-school" data-i18n="edu1_school">东南大学（985）</div>
+      <div class="edu-degree" data-i18n="edu1_degree">经济管理学院 · 会计专业硕士</div>
+      <div class="edu-honors">核心课程：大数据分析方法与应用、人工智能与会计信息技术、管理经济学</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">2021.09 – 2025.07</div>
+      <div class="edu-school" data-i18n="edu2_school">南京信息工程大学（双一流）</div>
+      <div class="edu-degree" data-i18n="edu2_degree">商学院 · 会计学学士</div>
+      <div class="edu-honors" data-i18n="edu2_honors">专业排名：1/105 · GPA：4.23/5 · CET4：577 · CET6：547<br>🏅 国家奖学金（综测第一）· 校长奖学金 · 连续两年校一等奖学金 · 校三好学生标兵 · 校优秀学生干部</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label" data-i18n="section_skills">Tools</div>
+  <h2 class="section-title reveal">Skills & <span>Tools</span></h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-cat" data-i18n="skill_cat1">数据分析</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Stata</span>
+        <span class="skill-tag">SPSS</span>
+        <span class="skill-tag">Excel</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat" data-i18n="skill_cat2">可视化 & 设计</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">PPT</span>
+        <span class="skill-tag">Axure</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat" data-i18n="skill_cat3">AI 工具</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Claude Code</span>
+        <span class="skill-tag">Trae</span>
+        <span class="skill-tag">VSCode</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat" data-i18n="skill_cat4">办公协作</div>
+      <div class="skill-tags">
+        <span class="skill-tag">飞书</span>
+        <span class="skill-tag">钉钉</span>
+        <span class="skill-tag">Xmind</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label" data-i18n="section_contact">Connect</div>
+  <h2 class="section-title reveal">Get in <span>Touch</span></h2>
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <p data-i18n="contact_desc">正在寻找产品/AI方向实习岗位。如有机会或想交流，欢迎联系！</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:1731863264@qq.com">
+          <span class="contact-link-icon">✉</span>
+          1731863264@qq.com
+        </a>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-group">
+        <label class="form-label" data-i18n="form_name">姓名</label>
+        <input class="form-input" type="text" placeholder="你的名字" id="f-name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="form_email">邮箱</label>
+        <input class="form-input" type="email" placeholder="your@email.com" id="f-email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="form_msg">留言</label>
+        <textarea class="form-textarea" placeholder="你好，我想和你交流..." id="f-msg"></textarea>
+      </div>
+      <button class="form-submit" onclick="sendMsg()" data-i18n="form_send">发送消息 →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>张芷萱</span> · Designed with intention · <span>2026</span>
+</footer>
+
+<!-- GITHUB MODAL -->
+<div id="github-modal" onclick="handleGithubModalBackdrop(event)">
+  <div class="github-panel" role="dialog" aria-modal="true" aria-labelledby="github-modal-title">
+    <div class="github-panel-header">
+      <div>
+        <div class="section-label" data-i18n="github_modal_label">Open Source</div>
+        <h2 id="github-modal-title" style="font-size:22px;font-weight:700;letter-spacing:-0.02em;" data-i18n="github_modal_title">GitHub Repos</h2>
+      </div>
+      <button class="btn-icon" onclick="closeGithubModal()" aria-label="Close" style="flex-shrink:0;">✕</button>
+    </div>
+    <div id="github-repos-body">
+      <div class="github-status" data-i18n="github_loading">Loading...</div>
+    </div>
+    <div class="github-panel-footer">
+      <a class="github-footer-link" href="https://github.com/yourusername" target="_blank" data-i18n="github_modal_footer">View all on GitHub ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- SPLASH CURSOR CANVAS -->
+<div style="position:fixed;top:0;left:0;z-index:50;pointer-events:none;width:100%;height:100%;">
+  <canvas id="splash-canvas" style="width:100vw;height:100vh;display:block;"></canvas>
+</div>
+
+<script>
+// ── i18n ──
+const i18n = {
+  en: {
+    nav_news: 'News', nav_projects: 'Projects', nav_learn: 'Learn', nav_experience: 'Experience',
+    nav_education: 'Education', nav_contact: 'Contact',
+    hero_name: '<span>Hi</span>, I\'m <span>Zhixuan Zhang</span>',
+    hero_tag: 'Product · AI · Strategy',
+    hero_desc: 'MSc in Accounting at Southeast University, with internet product internship experience at SHEIN and Dewu. Passionate about exploring new things — where inspiration meets aesthetics. Aspiring to reshape product landscapes from a user perspective, delivering beauty to the world. Seeking product/AI internship opportunities.',
+    btn_resume: '↓ Download Resume', btn_contact: 'Get in Touch',
+    avatar_badge: '@ Southeast University', scroll_hint: 'scroll',
+    section_news: 'Latest', section_projects: 'Work', section_learn: 'Learn & Explore', section_exp: 'Career',
+    section_edu: 'Academia', section_skills: 'Tools', section_contact: 'Connect',
+    news_title: 'What\'s <span>New</span>', news_sub: 'What\'s New',
+    projects_title: 'Vibe <span>Coding</span>', projects_sub: 'Projects',
+    learn_title: 'Learn <span>&</span> Explore', learn_sub: 'Learn & Explore',
+    exp_title: '<span>Experience</span>', exp_sub: 'Experience',
+    edu_title: '<span>Education</span>', edu_sub: 'Education',
+    skills_title: 'Skills & <span>Tools</span>', skills_sub: 'Skills & Tools',
+    contact_title: 'Get in <span>Touch</span>', contact_sub: 'Get in Touch',
+    news_1: '🔍 Actively seeking <strong>product/AI internship roles</strong> — excited for new opportunities.',
+    news_2: '🌍 Joined <strong>SHEIN Global Marketing</strong> as a Landing Page Product Intern.',
+    news_3: '🎓 Started <strong>MSc in Accounting at Southeast University</strong>.',
+    news_4: '🤖 Joined <strong>Dewu Product Research Center</strong> as Product Operations Intern — led chatbot & sentiment projects.',
+    news_5: '🏆 Won <strong>National 2nd Prize in Brand Planning Competition</strong> (Team Lead).',
+    news_6: '🚀 Launched Xiaohongshu account <strong>「桃柒」</strong>, grew from 0 to 10k+ followers.',
+    proj1_badge: 'Coming Soon', proj1_title: 'Vibe Coding Project I',
+    proj1_sub: 'Tools: Claude Code · Figma · GitHub',
+    proj1_desc: 'An upcoming vibe coding project. Stay tuned.',
+    proj1_link: 'Coming Soon',
+    proj2_badge: 'Coming Soon', proj2_title: 'Vibe Coding Project II',
+    proj2_sub: 'Tools: Trae · VSCode · Vercel',
+    proj2_desc: 'Another creative project under construction.',
+    proj2_link: 'Coming Soon',
+    proj3_badge: 'Coming Soon', proj3_title: 'Vibe Coding Project III',
+    proj3_sub: 'Tools: AI · NoCode · API',
+    proj3_desc: 'More explorations, more possibilities.',
+    proj3_link: 'Coming Soon',
+    learn_left_title: '🛠️ Vibe Coding Works',
+    learn_right_title: '📕 Xiaohongshu · Learning Notes',
+    vibe1_title: 'Personal Portfolio Site',
+    vibe1_desc: 'The site you\'re viewing now — built with a template + AI collaboration',
+    vibe1_preview: 'Used Claude Code to customize from a template — colors, content, animations — completing the entire journey from scratch to deployment.',
+    vibe1_btn: 'Open Project ↗',
+    vibe2_title: 'Project TBD II',
+    vibe2_desc: 'Next vibe coding project, ideas brewing',
+    vibe2_preview: 'New creations coming soon. Stay tuned.',
+    vibe2_btn: 'Open Project ↗',
+    vibe3_title: 'Project TBD III',
+    vibe3_desc: 'More possibilities, continuously exploring',
+    vibe3_preview: 'Exploring the limitless potential of AI + NoCode.',
+    vibe3_btn: 'Open Project ↗',
+    xhs1_title: 'Vibe Coding Starter Guide: Building Your First Webpage with AI',
+    xhs1_meta: 'Xiaohongshu · 桃柒',
+    xhs2_title: 'Designer to PM Transition: My Toolchain',
+    xhs2_meta: 'Xiaohongshu · 桃柒',
+    xhs3_title: 'From 0 to 10K Followers: Content Productization in Practice',
+    xhs3_meta: 'Xiaohongshu · 桃柒',
+    exp1_role: 'Landing Page Product Intern',
+    exp2_role: 'Product Operations Intern · Product Research Center',
+    exp2_desc: 'Chatbot project: Identified user pain points, improved COACH brand service resolution rate by 10.2% and reduced complaint rate by 8.5%. Content creation: Designed content templates and SOP, published 73 pieces in Q4 with 434K+ total exposure. Sentiment tracking: Designed escalation standards and built a closed-loop workflow, resolving 1,679 cases in Q4, with a 38% month-over-month decrease.',
+    edu1_school: 'Southeast University (985)',
+    edu1_degree: 'MSc in Accounting · School of Economics & Management',
+    edu2_school: 'Nanjing University of Information Science & Technology (Double First-Class)',
+    edu2_degree: 'Bachelor\'s in Accounting · Business School',
+    edu2_honors: 'Rank: 1/105 · GPA: 4.23/5 · CET4: 577 · CET6: 547<br>🏅 National Scholarship (Top Composite Score) · President\'s Scholarship · First-Class Scholarship ×2 · Outstanding Student · Outstanding Student Leader',
+    skill_cat1: 'Data Analysis', skill_cat2: 'Visual & Design',
+    skill_cat3: 'AI Tools', skill_cat4: 'Collaboration',
+    contact_desc: 'Actively seeking product/AI internship roles. If you have an opportunity or just want to chat, feel free to reach out!',
+    form_name: 'Name', form_email: 'Email', form_msg: 'Message', form_send: 'Send Message →',
+    typing_roles: ['Product Builder', 'AI Enthusiast', 'SEU MSc Student'],
+    btn_github: '⌥ GitHub',
+    github_modal_label: 'Open Source',
+    github_modal_title: 'GitHub Repos',
+    github_modal_footer: 'View all on GitHub ↗',
+    github_repo_code: 'Code',
+    github_repo_live: 'Live ↗',
+    github_loading: 'Loading...',
+    github_error: 'Failed to load repos.'
+  },
+  zh: {
+    nav_news: '动态', nav_projects: '项目', nav_learn: '学习', nav_experience: '经历',
+    nav_education: '教育', nav_contact: '联系',
+    hero_name: '<span>Hi</span>，我是<span>张芷萱</span>',
+    hero_tag: '产品 · AI · 战略',
+    hero_desc: '东南大学会计硕士在读，拥有互联网产品实习经验（SHEIN、得物），热衷于探索新事物，灵感与美感同时在线，渴望改变产品格局，从用户视角出发，传递世界的美好，期望在产品/AI方向实习岗位上发光发热。',
+    btn_resume: '↓ 下载简历', btn_contact: '联系我',
+    avatar_badge: '@ 东南大学', scroll_hint: '向下滚动',
+    section_news: '最新动态', section_projects: '精选项目', section_learn: '学习 & 探索', section_exp: '实习经历',
+    section_edu: '教育背景', section_skills: '技能工具', section_contact: '联系方式',
+    news_title: '最新 <span>动态</span>', news_sub: '最新动态',
+    projects_title: 'Vibe <span>Coding</span>', projects_sub: '精选项目',
+    learn_title: '学习 <span>&</span> 探索', learn_sub: '学习 & 探索',
+    exp_title: '实习 <span>经历</span>', exp_sub: '实习经历',
+    edu_title: '教育 <span>背景</span>', edu_sub: '教育背景',
+    skills_title: '技能 <span>工具</span>', skills_sub: '技能工具',
+    contact_title: '联系 <span>方式</span>', contact_sub: '联系方式',
+    news_1: '🔍 正在积极寻找<strong>产品/AI方向实习岗位</strong>，期待新的机遇与挑战。',
+    news_2: '🌍 加入 <strong>SHEIN Global Marketing</strong>，担任落地页产品实习生。',
+    news_3: '🎓 入读<strong>东南大学经济管理学院</strong>会计专业硕士。',
+    news_4: '🤖 加入<strong>得物商品研究中心</strong>，担任产品运营实习生，负责客服机器人及舆情项目。',
+    news_5: '🏆 获<strong>全国高校商业精英挑战赛品牌策划竞赛国家级二等奖</strong>（团队负责人）。',
+    news_6: '🚀 启动小红书个人账号<strong>「桃柒」</strong>，从0到1万+粉丝，验证内容产品化路径。',
+    proj1_badge: '即将上线', proj1_title: 'Vibe Coding 项目一',
+    proj1_sub: '工具：Claude Code · Figma · GitHub',
+    proj1_desc: '即将上线的 vibe coding 作品，敬请期待。',
+    proj1_link: '即将开放',
+    proj2_badge: '即将上线', proj2_title: 'Vibe Coding 项目二',
+    proj2_sub: '工具：Trae · VSCode · Vercel',
+    proj2_desc: '又一个创意项目，正在构建中。',
+    proj2_link: '即将开放',
+    proj3_badge: '即将上线', proj3_title: 'Vibe Coding 项目三',
+    proj3_sub: '工具：AI · NoCode · API',
+    proj3_desc: '更多探索，更多可能。',
+    proj3_link: '即将开放',
+    learn_left_title: '🛠️ Vibe Coding 作品',
+    learn_right_title: '📕 小红书 · Vibe Coding 学习心得',
+    vibe1_title: '个人作品集网站',
+    vibe1_desc: '你现在看到的这个网站，基于模板 + AI 协作构建',
+    vibe1_preview: '使用 Claude Code 从模板出发，逐步定制配色、内容、动效，完成从零到部署的全流程。',
+    vibe1_btn: '打开项目 ↗',
+    vibe2_title: '待定项目二',
+    vibe2_desc: '下一个 vibe coding 作品，想法酝酿中',
+    vibe2_preview: '新的创意即将到来，敬请期待。',
+    vibe2_btn: '打开项目 ↗',
+    vibe3_title: '待定项目三',
+    vibe3_desc: '更多可能性，持续探索中',
+    vibe3_preview: '探索 AI + NoCode 的无限可能。',
+    vibe3_btn: '打开项目 ↗',
+    xhs1_title: 'Vibe Coding 入门笔记：如何用 AI 打造你的第一个网页',
+    xhs1_meta: '小红书 · 桃柒',
+    xhs2_title: '设计师转型产品：我的工具链分享',
+    xhs2_meta: '小红书 · 桃柒',
+    xhs3_title: '从 0 到 1 万粉丝：内容产品化的实践与思考',
+    xhs3_meta: '小红书 · 桃柒',
+    exp1_role: '落地页产品实习生',
+    exp2_role: '产品运营实习生 · 商品研究中心',
+    exp2_desc: '客服机器人项目：精准定位用户痛点，推动 COACH 品牌客服解决率提升 10.2%，客诉率下降 8.5%。科普内容搭建：自主设计图文模板及发布 SOP，Q4 累计发布 73 篇内容，总曝光 43.4 万+。舆情跟踪：设计舆情分级标准与闭环流程，Q4 累计解决舆情 1679 条，环比下降 38%。',
+    edu1_school: '东南大学（985）',
+    edu1_degree: '经济管理学院 · 会计专业硕士',
+    edu2_school: '南京信息工程大学（双一流）',
+    edu2_degree: '商学院 · 会计学学士',
+    edu2_honors: '专业排名：1/105 · GPA：4.23/5 · CET4：577 · CET6：547<br>🏅 国家奖学金（综测第一）· 校长奖学金 · 连续两年校一等奖学金 · 校三好学生标兵 · 校优秀学生干部',
+    skill_cat1: '数据分析', skill_cat2: '可视化 & 设计',
+    skill_cat3: 'AI 工具', skill_cat4: '办公协作',
+    contact_desc: '正在寻找产品/AI方向实习岗位。如有机会或想交流，欢迎联系！',
+    form_name: '姓名', form_email: '邮箱', form_msg: '留言', form_send: '发送消息 →',
+    typing_roles: ['产品构建者', 'AI爱好者', '东南大学硕士在读'],
+    btn_github: '⌥ GitHub',
+    github_modal_label: '开源项目',
+    github_modal_title: 'GitHub 仓库',
+    github_modal_footer: '在 GitHub 查看全部 ↗',
+    github_repo_code: '代码',
+    github_repo_live: '演示 ↗',
+    github_loading: '加载中...',
+    github_error: '加载失败'
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  const t = i18n[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  startTyping();
+  localStorage.setItem('tw-lang', lang);
+  if (_githubReposCache) renderGithubRepos();
+}
+
+// ── TYPING ──
+let typingTimer;
+function startTyping() {
+  clearTimeout(typingTimer);
+  const el = document.getElementById('typing-text');
+  const roles = i18n[currentLang].typing_roles;
+  let ri = 0, ci = 0, deleting = false;
+  el.textContent = '';
+  function tick() {
+    const word = roles[ri];
+    if (!deleting) {
+      el.textContent = word.slice(0, ci + 1); ci++;
+      if (ci === word.length) { deleting = true; typingTimer = setTimeout(tick, 1800); return; }
+    } else {
+      el.textContent = word.slice(0, ci - 1); ci--;
+      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
+    }
+    typingTimer = setTimeout(tick, deleting ? 60 : 90);
+  }
+  tick();
+}
+
+// ── THEME ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('theme-btn').textContent = isDark ? '☾' : '☀';
+  localStorage.setItem('tw-theme', isDark ? 'light' : 'dark');
+}
+
+// ── PARTICLES ──
+function initParticles() {
+  const canvas = document.getElementById('particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, dots = [];
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    dots = Array.from({length: 80}, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-0.5)*0.3, vy: (Math.random()-0.5)*0.3,
+      r: Math.random()*1.5+0.5
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const accent = isDark ? '232,140,50' : '200,110,30';
+    dots.forEach(d => {
+      d.x += d.vx; d.y += d.vy;
+      if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
+      if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${accent},0.5)`; ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', resize);
+  resize(); draw();
+}
+
+// ── SCROLL REVEAL ──
+function initReveal() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .news-item, .project-card, .tl-item, .edu-card, .skill-group, .vibe-card, .xhs-ref-card').forEach(el => obs.observe(el));
+}
+
+document.querySelectorAll('.project-card').forEach((card, i) => { card.style.transitionDelay = (i * 0.1) + 's'; });
+document.querySelectorAll('.tl-item').forEach((item, i) => { item.style.transitionDelay = (i * 0.07) + 's'; });
+
+// ── VIBE CARD TOGGLE ──
+function toggleVibeCard(card) {
+  const wasActive = card.classList.contains('active');
+  // Close all cards first
+  document.querySelectorAll('.vibe-card').forEach(c => c.classList.remove('active'));
+  if (!wasActive) card.classList.add('active');
+}
+
+// ── CONTACT FORM ──
+function sendMsg() {
+  const name = document.getElementById('f-name').value;
+  const email = document.getElementById('f-email').value;
+  const msg = document.getElementById('f-msg').value;
+  if (!name || !email || !msg) { alert('请填写所有字段 / Please fill in all fields.'); return; }
+  const subject = encodeURIComponent(`Message from ${name} via portfolio`);
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
+  window.open(`mailto:1731863264@qq.com?subject=${subject}&body=${body}`);
+}
+
+// ── RESUME DOWNLOAD ──
+function downloadResume() {
+  alert('简历即将更新，请稍后下载 / Resume will be updated soon.');
+}
+
+// ── GITHUB MODAL ──
+let _githubReposCache = null;
+
+function openGithubModal() {
+  document.getElementById('github-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('keydown', handleGithubEsc);
+  if (!_githubReposCache) loadGithubRepos();
+}
+function closeGithubModal() {
+  document.getElementById('github-modal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', handleGithubEsc);
+}
+function handleGithubModalBackdrop(e) {
+  if (e.target === document.getElementById('github-modal')) closeGithubModal();
+}
+function handleGithubEsc(e) { if (e.key === 'Escape') closeGithubModal(); }
+
+async function loadGithubRepos() {
+  const body = document.getElementById('github-repos-body');
+  const t = i18n[currentLang];
+  body.innerHTML = `<div class="github-status">${t.github_loading}</div>`;
+  try {
+    const res = await fetch('https://api.github.com/users/yourusername/repos?sort=updated&per_page=30');
+    if (!res.ok) throw new Error('API error');
+    const repos = await res.json();
+    _githubReposCache = repos.filter(r => r.name !== 'yourusername.github.io' && !r.fork);
+    renderGithubRepos();
+  } catch (err) {
+    body.innerHTML = `<div class="github-status">${t.github_error}</div>`;
+  }
+}
+
+function getLiveUrl(repo) {
+  if (repo.homepage) {
+    try { const u = new URL(repo.homepage); if (u.protocol === 'https:' || u.protocol === 'http:') return repo.homepage; } catch (_) {}
+  }
+  if (repo.has_pages) return `https://yourusername.github.io/${repo.name}`;
+  return null;
+}
+
+function renderGithubRepos() {
+  if (!_githubReposCache) return;
+  const t = i18n[currentLang];
+  const body = document.getElementById('github-repos-body');
+  const grid = document.createElement('div');
+  grid.className = 'github-repos-grid';
+  _githubReposCache.forEach(repo => {
+    const liveUrl = getLiveUrl(repo);
+    const card = document.createElement('div');
+    card.className = 'github-repo-card';
+    card.innerHTML = `
+      <div class="github-repo-name">${repo.name}</div>
+      <div class="github-repo-desc">${repo.description || '—'}</div>
+      <div class="github-repo-meta">
+        ${repo.language ? `<span class="github-lang-badge">${repo.language}</span>` : ''}
+        ${repo.stargazers_count > 0 ? `<span class="github-stars">⭐ ${repo.stargazers_count}</span>` : ''}
+      </div>
+      <div class="github-repo-links">
+        <a class="github-link-code" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${t.github_repo_code}</a>
+        ${liveUrl ? `<a class="github-link-live" href="${liveUrl}" target="_blank" rel="noopener noreferrer">${t.github_repo_live}</a>` : ''}
+      </div>`;
+    grid.appendChild(card);
+  });
+  body.innerHTML = '';
+  body.appendChild(grid);
+}
+
+// ── SPLASH CURSOR (WebGL Fluid Simulation adapted from reactbits.dev) ──
+(function initSplashCursor() {
+  const canvas = document.getElementById('splash-canvas');
+  if (!canvas) return;
+
+  const COLOR = '#e06010';
+  const SPLAT_RADIUS = 0.08;
+  const SPLAT_FORCE = 2000;
+  const CURL = 3;
+  const PRESSURE = 0.1;
+  const PRESSURE_ITERATIONS = 20;
+  const DENSITY_DISSIPATION = 3.5;
+  const VELOCITY_DISSIPATION = 2;
+  const COLOR_UPDATE_SPEED = 10;
+  const SIM_RESOLUTION = 128;
+  const DYE_RESOLUTION = 1440;
+  const SHADING = true;
+  const RAINBOW_MODE = false;
+
+  const { gl, ext } = getWebGLContext(canvas);
+
+  function pointerPrototype() {
+    this.id = -1; this.texcoordX = 0; this.texcoordY = 0;
+    this.prevTexcoordX = 0; this.prevTexcoordY = 0;
+    this.deltaX = 0; this.deltaY = 0; this.down = false; this.moved = false;
+    this.color = [0, 0, 0];
+  }
+
+  let pointers = [new pointerPrototype()];
+  let config = { SIM_RESOLUTION, DYE_RESOLUTION, DENSITY_DISSIPATION, VELOCITY_DISSIPATION, PRESSURE, PRESSURE_ITERATIONS, CURL, SPLAT_RADIUS, SPLAT_FORCE, SHADING, COLOR_UPDATE_SPEED, COLOR, RAINBOW_MODE };
+
+  function getWebGLContext(canvas) {
+    const params = { alpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
+    let gl = canvas.getContext('webgl2', params);
+    const isWebGL2 = !!gl;
+    if (!isWebGL2) gl = canvas.getContext('webgl', params) || canvas.getContext('experimental-webgl', params);
+    let halfFloat, supportLinearFiltering;
+    if (isWebGL2) {
+      gl.getExtension('EXT_color_buffer_float');
+      supportLinearFiltering = gl.getExtension('OES_texture_float_linear');
+    } else {
+      halfFloat = gl.getExtension('OES_texture_half_float');
+      supportLinearFiltering = gl.getExtension('OES_texture_half_float_linear');
+    }
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    const halfFloatTexType = isWebGL2 ? gl.HALF_FLOAT : halfFloat && halfFloat.HALF_FLOAT_OES;
+    let formatRGBA, formatRG, formatR;
+    if (isWebGL2) {
+      formatRGBA = getSupportedFormat(gl, gl.RGBA16F, gl.RGBA, halfFloatTexType);
+      formatRG = getSupportedFormat(gl, gl.RG16F, gl.RG, halfFloatTexType);
+      formatR = getSupportedFormat(gl, gl.R16F, gl.RED, halfFloatTexType);
+    } else {
+      formatRGBA = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
+      formatRG = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
+      formatR = getSupportedFormat(gl, gl.RGBA, gl.RGBA, halfFloatTexType);
+    }
+    if (!supportLinearFiltering) { config.DYE_RESOLUTION = 256; config.SHADING = false; }
+    return { gl, ext: { formatRGBA, formatRG, formatR, halfFloatTexType, supportLinearFiltering } };
+  }
+
+  function getSupportedFormat(gl, internalFormat, format, type) {
+    if (!supportRenderTextureFormat(gl, internalFormat, format, type)) {
+      switch (internalFormat) {
+        case gl.R16F: return getSupportedFormat(gl, gl.RG16F, gl.RG, type);
+        case gl.RG16F: return getSupportedFormat(gl, gl.RGBA16F, gl.RGBA, type);
+        default: return null;
+      }
+    }
+    return { internalFormat, format };
+  }
+
+  function supportRenderTextureFormat(gl, internalFormat, format, type) {
+    const texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, 4, 4, 0, format, type, null);
+    const fbo = gl.createFramebuffer();
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+    return gl.checkFramebufferStatus(gl.FRAMEBUFFER) === gl.FRAMEBUFFER_COMPLETE;
+  }
+
+  function compileShader(type, source) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    return shader;
+  }
+
+  function createProgram(vs, fs) {
+    const program = gl.createProgram();
+    gl.attachShader(program, vs); gl.attachShader(program, fs);
+    gl.linkProgram(program);
+    return program;
+  }
+
+  const baseVS = compileShader(gl.VERTEX_SHADER, 'precision highp float;attribute vec2 aPosition;varying vec2 vUv,vL,vR,vT,vB;uniform vec2 texelSize;void main(){vUv=aPosition*0.5+0.5;vL=vUv-vec2(texelSize.x,0.0);vR=vUv+vec2(texelSize.x,0.0);vT=vUv+vec2(0.0,texelSize.y);vB=vUv-vec2(0.0,texelSize.y);gl_Position=vec4(aPosition,0.0,1.0);}');
+
+  const copyFS = compileShader(gl.FRAGMENT_SHADER, 'precision mediump float;precision mediump sampler2D;varying highp vec2 vUv;uniform sampler2D uTexture;void main(){gl_FragColor=texture2D(uTexture,vUv);}');
+  const clearFS = compileShader(gl.FRAGMENT_SHADER, 'precision mediump float;precision mediump sampler2D;varying highp vec2 vUv;uniform sampler2D uTexture;uniform float value;void main(){gl_FragColor=value*texture2D(uTexture,vUv);}');
+  const splatFS = compileShader(gl.FRAGMENT_SHADER, 'precision highp float;precision highp sampler2D;varying vec2 vUv;uniform sampler2D uTarget;uniform float aspectRatio;uniform vec3 color;uniform vec2 point;uniform float radius;void main(){vec2 p=vUv-point.xy;p.x*=aspectRatio;vec3 splat=exp(-dot(p,p)/radius)*color;vec3 base=texture2D(uTarget,vUv).xyz;gl_FragColor=vec4(base+splat,1.0);}');
+  const advectionFS = compileShader(gl.FRAGMENT_SHADER, 'precision highp float;precision highp sampler2D;varying vec2 vUv;uniform sampler2D uVelocity;uniform sampler2D uSource;uniform vec2 texelSize;uniform float dt;uniform float dissipation;void main(){vec2 coord=vUv-dt*texture2D(uVelocity,vUv).xy*texelSize;vec4 result=texture2D(uSource,coord);float decay=1.0+dissipation*dt;gl_FragColor=result/decay;}');
+  const divergenceFS = compileShader(gl.FRAGMENT_SHADER, 'precision mediump float;precision mediump sampler2D;varying highp vec2 vUv,vL,vR,vT,vB;uniform sampler2D uVelocity;void main(){float L=texture2D(uVelocity,vL).x;float R=texture2D(uVelocity,vR).x;float T=texture2D(uVelocity,vT).y;float B=texture2D(uVelocity,vB).y;vec2 C=texture2D(uVelocity,vUv).xy;if(vL.x<0.0)L=-C.x;if(vR.x>1.0)R=-C.x;if(vT.y>1.0)T=-C.y;if(vB.y<0.0)B=-C.y;float div=0.5*(R-L+T-B);gl_FragColor=vec4(div,0.0,0.0,1.0);}');
+  const curlFS = compileShader(gl.FRAGMENT_SHADER, 'precision mediump float;precision mediump sampler2D;varying highp vec2 vUv,vL,vR,vT,vB;uniform sampler2D uVelocity;void main(){float L=texture2D(uVelocity,vL).y;float R=texture2D(uVelocity,vR).y;float T=texture2D(uVelocity,vT).x;float B=texture2D(uVelocity,vB).x;float vorticity=R-L-T+B;gl_FragColor=vec4(0.5*vorticity,0.0,0.0,1.0);}');
+  const vorticityFS = compileShader(gl.FRAGMENT_SHADER, 'precision highp float;precision highp sampler2D;varying vec2 vUv,vL,vR,vT,vB;uniform sampler2D uVelocity;uniform sampler2D uCurl;uniform float curl;uniform float dt;void main(){float L=texture2D(uCurl,vL).x;float R=texture2D(uCurl,vR).x;float T=texture2D(uCurl,vT).x;float B=texture2D(uCurl,vB).x;float C=texture2D(uCurl,vUv).x;vec2 force=0.5*vec2(abs(T)-abs(B),abs(R)-abs(L));force/=length(force)+0.0001;force*=curl*C;force.y*=-1.0;vec2 velocity=texture2D(uVelocity,vUv).xy;velocity+=force*dt;velocity=min(max(velocity,-1000.0),1000.0);gl_FragColor=vec4(velocity,0.0,1.0);}');
+  const pressureFS = compileShader(gl.FRAGMENT_SHADER, 'precision mediump float;precision mediump sampler2D;varying highp vec2 vUv,vL,vR,vT,vB;uniform sampler2D uPressure;uniform sampler2D uDivergence;void main(){float L=texture2D(uPressure,vL).x;float R=texture2D(uPressure,vR).x;float T=texture2D(uPressure,vT).x;float B=texture2D(uPressure,vB).x;float C=texture2D(uPressure,vUv).x;float div=texture2D(uDivergence,vUv).x;float pressure=(L+R+B+T-div)*0.25;gl_FragColor=vec4(pressure,0.0,0.0,1.0);}');
+  const gradSubFS = compileShader(gl.FRAGMENT_SHADER, 'precision mediump float;precision mediump sampler2D;varying highp vec2 vUv,vL,vR,vT,vB;uniform sampler2D uPressure;uniform sampler2D uVelocity;void main(){float L=texture2D(uPressure,vL).x;float R=texture2D(uPressure,vR).x;float T=texture2D(uPressure,vT).x;float B=texture2D(uPressure,vB).x;vec2 vel=texture2D(uVelocity,vUv).xy;vel.xy-=vec2(R-L,T-B);gl_FragColor=vec4(vel,0.0,1.0);}');
+  const displayFS = 'precision highp float;precision highp sampler2D;varying vec2 vUv,vL,vR,vT,vB;uniform sampler2D uTexture;uniform vec2 texelSize;vec3 linearToGamma(vec3 c){c=max(c,vec3(0.0));return max(1.055*pow(c,vec3(0.416666667))-0.055,vec3(0.0));}void main(){vec3 c=texture2D(uTexture,vUv).rgb;' + (config.SHADING ? 'vec3 lc=texture2D(uTexture,vL).rgb;vec3 rc=texture2D(uTexture,vR).rgb;vec3 tc=texture2D(uTexture,vT).rgb;vec3 bc=texture2D(uTexture,vB).rgb;float dx=length(rc)-length(lc);float dy=length(tc)-length(bc);vec3 n=normalize(vec3(dx,dy,length(texelSize)));vec3 l=vec3(0.0,0.0,1.0);c*=clamp(dot(n,l)+0.7,0.7,1.0);' : '') + 'float a=max(c.r,max(c.g,c.b));gl_FragColor=vec4(c,a);}';
+
+  const copyProgram = createProgram(baseVS, copyFS);
+  const clearProgram = createProgram(baseVS, clearFS);
+  const splatProgram = createProgram(baseVS, splatFS);
+  const advectionProgram = createProgram(baseVS, advectionFS);
+  const divergenceProgram = createProgram(baseVS, divergenceFS);
+  const curlProgram = createProgram(baseVS, curlFS);
+  const vorticityProgram = createProgram(baseVS, vorticityFS);
+  const pressureProgram = createProgram(baseVS, pressureFS);
+  const gradSubProgram = createProgram(baseVS, gradSubFS);
+  const displayProgram = createProgram(baseVS, compileShader(gl.FRAGMENT_SHADER, displayFS));
+
+  function getUniforms(p) {
+    const u = {};
+    const n = gl.getProgramParameter(p, gl.ACTIVE_UNIFORMS);
+    for (let i = 0; i < n; i++) { const name = gl.getActiveUniform(p, i).name; u[name] = gl.getUniformLocation(p, name); }
+    return u;
+  }
+
+  const copyUni = getUniforms(copyProgram);
+  const clearUni = getUniforms(clearProgram);
+  const splatUni = getUniforms(splatProgram);
+  const advectionUni = getUniforms(advectionProgram);
+  const divergenceUni = getUniforms(divergenceProgram);
+  const curlUni = getUniforms(curlProgram);
+  const vorticityUni = getUniforms(vorticityProgram);
+  const pressureUni = getUniforms(pressureProgram);
+  const gradSubUni = getUniforms(gradSubProgram);
+  const displayUni = getUniforms(displayProgram);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,-1,1,1,1,1,-1]), gl.STATIC_DRAW);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gl.createBuffer());
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array([0,1,2,0,2,3]), gl.STATIC_DRAW);
+  gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+  gl.enableVertexAttribArray(0);
+
+  function blit(target) {
+    if (target == null) { gl.viewport(0,0,gl.drawingBufferWidth,gl.drawingBufferHeight); gl.bindFramebuffer(gl.FRAMEBUFFER, null); }
+    else { gl.viewport(0,0,target.width,target.height); gl.bindFramebuffer(gl.FRAMEBUFFER, target.fbo); }
+    gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
+  }
+
+  function createFBO(w, h, internalFormat, format, type, param) {
+    gl.activeTexture(gl.TEXTURE0);
+    const tex = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, tex);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, param);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, param);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, w, h, 0, format, type, null);
+    const fbo = gl.createFramebuffer();
+    gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+    gl.viewport(0,0,w,h); gl.clear(gl.COLOR_BUFFER_BIT);
+    return { texture: tex, fbo, width: w, height: h, texelSizeX: 1.0/w, texelSizeY: 1.0/h, attach(id) { gl.activeTexture(gl.TEXTURE0+id); gl.bindTexture(gl.TEXTURE_2D, tex); return id; } };
+  }
+
+  function createDoubleFBO(w, h, internalFormat, format, type, param) {
+    let fbo1 = createFBO(w,h,internalFormat,format,type,param);
+    let fbo2 = createFBO(w,h,internalFormat,format,type,param);
+    return { width: w, height: h, texelSizeX: fbo1.texelSizeX, texelSizeY: fbo1.texelSizeY, get read(){return fbo1;}, set read(v){fbo1=v;}, get write(){return fbo2;}, set write(v){fbo2=v;}, swap(){const t=fbo1;fbo1=fbo2;fbo2=t;} };
+  }
+
+  function getResolution(res) {
+    let ar = gl.drawingBufferWidth / gl.drawingBufferHeight;
+    if (ar < 1) ar = 1.0 / ar;
+    const min = Math.round(res), max = Math.round(res * ar);
+    return gl.drawingBufferWidth > gl.drawingBufferHeight ? { width: max, height: min } : { width: min, height: max };
+  }
+
+  function scaleByPixelRatio(input) { return Math.floor(input * (window.devicePixelRatio || 1)); }
+
+  const simRes = getResolution(config.SIM_RESOLUTION);
+  const dyeRes = getResolution(config.DYE_RESOLUTION);
+  const texType = ext.halfFloatTexType;
+  const rgba = ext.formatRGBA, rg = ext.formatRG, r = ext.formatR;
+  const filtering = ext.supportLinearFiltering ? gl.LINEAR : gl.NEAREST;
+  gl.disable(gl.BLEND);
+
+  let dye = createDoubleFBO(dyeRes.width, dyeRes.height, rgba.internalFormat, rgba.format, texType, filtering);
+  let velocity = createDoubleFBO(simRes.width, simRes.height, rg.internalFormat, rg.format, texType, filtering);
+  let divergence = createFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST);
+  let curl = createFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST);
+  let pressure = createDoubleFBO(simRes.width, simRes.height, r.internalFormat, r.format, texType, gl.NEAREST);
+
+  function hexToRGB(hex) {
+    let val = hex.replace('#','');
+    if (val.length===3) val=val[0]+val[0]+val[1]+val[1]+val[2]+val[2];
+    return { r: parseInt(val.slice(0,2),16)/255*0.15, g: parseInt(val.slice(2,4),16)/255*0.15, b: parseInt(val.slice(4,6),16)/255*0.15 };
+  }
+
+  function generateColor() {
+    return hexToRGB(config.COLOR);
+  }
+
+  function splat(x, y, dx, dy, color) {
+    gl.useProgram(splatProgram);
+    gl.uniform1i(splatUni.uTarget, velocity.read.attach(0));
+    gl.uniform1f(splatUni.aspectRatio, canvas.width/canvas.height);
+    gl.uniform2f(splatUni.point, x, y);
+    gl.uniform3f(splatUni.color, dx, dy, 0.0);
+    gl.uniform1f(splatUni.radius, (()=>{let r=config.SPLAT_RADIUS/100.0;let ar=canvas.width/canvas.height;if(ar>1)r*=ar;return r;})());
+    blit(velocity.write); velocity.swap();
+    gl.uniform1i(splatUni.uTarget, dye.read.attach(0));
+    gl.uniform3f(splatUni.color, color.r, color.g, color.b);
+    blit(dye.write); dye.swap();
+  }
+
+  function splatPointer(p) {
+    splat(p.texcoordX, p.texcoordY, p.deltaX*config.SPLAT_FORCE, p.deltaY*config.SPLAT_FORCE, p.color);
+  }
+
+  function clickSplat(p) {
+    const c = generateColor();
+    c.r*=10;c.g*=10;c.b*=10;
+    splat(p.texcoordX, p.texcoordY, 10*(Math.random()-0.5), 30*(Math.random()-0.5), c);
+  }
+
+  let lastUpdateTime = Date.now();
+  let colorUpdateTimer = 0.0;
+
+  function step(dt) {
+    gl.disable(gl.BLEND);
+    gl.useProgram(curlProgram);
+    gl.uniform2f(curlUni.texelSize, velocity.texelSizeX, velocity.texelSizeY);
+    gl.uniform1i(curlUni.uVelocity, velocity.read.attach(0));
+    blit(curl);
+
+    gl.useProgram(vorticityProgram);
+    gl.uniform2f(vorticityUni.texelSize, velocity.texelSizeX, velocity.texelSizeY);
+    gl.uniform1i(vorticityUni.uVelocity, velocity.read.attach(0));
+    gl.uniform1i(vorticityUni.uCurl, curl.attach(1));
+    gl.uniform1f(vorticityUni.curl, config.CURL);
+    gl.uniform1f(vorticityUni.dt, dt);
+    blit(velocity.write); velocity.swap();
+
+    gl.useProgram(divergenceProgram);
+    gl.uniform2f(divergenceUni.texelSize, velocity.texelSizeX, velocity.texelSizeY);
+    gl.uniform1i(divergenceUni.uVelocity, velocity.read.attach(0));
+    blit(divergence);
+
+    gl.useProgram(clearProgram);
+    gl.uniform1i(clearUni.uTexture, pressure.read.attach(0));
+    gl.uniform1f(clearUni.value, config.PRESSURE);
+    blit(pressure.write); pressure.swap();
+
+    gl.useProgram(pressureProgram);
+    gl.uniform2f(pressureUni.texelSize, velocity.texelSizeX, velocity.texelSizeY);
+    gl.uniform1i(pressureUni.uDivergence, divergence.attach(0));
+    for (let i=0;i<config.PRESSURE_ITERATIONS;i++) {
+      gl.uniform1i(pressureUni.uPressure, pressure.read.attach(1));
+      blit(pressure.write); pressure.swap();
+    }
+
+    gl.useProgram(gradSubProgram);
+    gl.uniform2f(gradSubUni.texelSize, velocity.texelSizeX, velocity.texelSizeY);
+    gl.uniform1i(gradSubUni.uPressure, pressure.read.attach(0));
+    gl.uniform1i(gradSubUni.uVelocity, velocity.read.attach(1));
+    blit(velocity.write); velocity.swap();
+
+    gl.useProgram(advectionProgram);
+    gl.uniform2f(advectionUni.texelSize, velocity.texelSizeX, velocity.texelSizeY);
+    gl.uniform1i(advectionUni.uVelocity, velocity.read.attach(0));
+    gl.uniform1i(advectionUni.uSource, velocity.read.attach(0));
+    gl.uniform1f(advectionUni.dt, dt);
+    gl.uniform1f(advectionUni.dissipation, config.VELOCITY_DISSIPATION);
+    blit(velocity.write); velocity.swap();
+
+    gl.uniform1i(advectionUni.uVelocity, velocity.read.attach(0));
+    gl.uniform1i(advectionUni.uSource, dye.read.attach(1));
+    gl.uniform1f(advectionUni.dissipation, config.DENSITY_DISSIPATION);
+    blit(dye.write); dye.swap();
+  }
+
+  function render() {
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    gl.enable(gl.BLEND);
+    gl.useProgram(displayProgram);
+    if (config.SHADING) gl.uniform2f(displayUni.texelSize, 1.0/gl.drawingBufferWidth, 1.0/gl.drawingBufferHeight);
+    gl.uniform1i(displayUni.uTexture, dye.read.attach(0));
+    blit(null);
+  }
+
+  function updateFrame() {
+    const now = Date.now();
+    let dt = Math.min((now - lastUpdateTime) / 1000, 0.016666);
+    lastUpdateTime = now;
+
+    if (canvas.width !== scaleByPixelRatio(canvas.clientWidth) || canvas.height !== scaleByPixelRatio(canvas.clientHeight)) {
+      canvas.width = scaleByPixelRatio(canvas.clientWidth);
+      canvas.height = scaleByPixelRatio(canvas.clientHeight);
+    }
+
+    colorUpdateTimer += dt * config.COLOR_UPDATE_SPEED;
+    if (colorUpdateTimer >= 1) { colorUpdateTimer = 0; pointers.forEach(p => { p.color = generateColor(); }); }
+
+    pointers.forEach(p => { if (p.moved) { p.moved = false; splatPointer(p); } });
+    step(dt);
+    render(null);
+    requestAnimationFrame(updateFrame);
+  }
+
+  let firstMoveHandled = false;
+  function handleMouseDown(e) {
+    const p = pointers[0];
+    const posX = scaleByPixelRatio(e.clientX), posY = scaleByPixelRatio(e.clientY);
+    p.id = -1; p.down = true; p.moved = false;
+    p.texcoordX = posX / canvas.width; p.texcoordY = 1.0 - posY / canvas.height;
+    p.prevTexcoordX = p.texcoordX; p.prevTexcoordY = p.texcoordY;
+    p.deltaX = 0; p.deltaY = 0;
+    p.color = generateColor();
+    clickSplat(p);
+  }
+  function handleMouseMove(e) {
+    const p = pointers[0];
+    const posX = scaleByPixelRatio(e.clientX), posY = scaleByPixelRatio(e.clientY);
+    p.prevTexcoordX = p.texcoordX; p.prevTexcoordY = p.texcoordY;
+    p.texcoordX = posX / canvas.width; p.texcoordY = 1.0 - posY / canvas.height;
+    let dx = p.texcoordX - p.prevTexcoordX, dy = p.texcoordY - p.prevTexcoordY;
+    const ar = canvas.width / canvas.height;
+    if (ar < 1) dx *= ar; if (ar > 1) dy /= ar;
+    p.deltaX = dx; p.deltaY = dy;
+    p.moved = Math.abs(dx) > 0 || Math.abs(dy) > 0;
+    if (!firstMoveHandled) { p.color = generateColor(); firstMoveHandled = true; }
+  }
+
+  window.addEventListener('mousedown', handleMouseDown);
+  window.addEventListener('mousemove', handleMouseMove);
+  window.addEventListener('touchstart', (e) => {
+    const ts = e.targetTouches;
+    const p = pointers[0];
+    for (let i=0;i<ts.length;i++) {
+      p.id = ts[i].identifier; p.down = true; p.moved = false;
+      p.texcoordX = scaleByPixelRatio(ts[i].clientX)/canvas.width;
+      p.texcoordY = 1.0-scaleByPixelRatio(ts[i].clientY)/canvas.height;
+      p.prevTexcoordX = p.texcoordX; p.prevTexcoordY = p.texcoordY;
+      p.deltaX = 0; p.deltaY = 0; p.color = generateColor();
+    }
+  });
+  window.addEventListener('touchmove', (e) => {
+    const ts = e.targetTouches;
+    const p = pointers[0];
+    for (let i=0;i<ts.length;i++) {
+      p.prevTexcoordX = p.texcoordX; p.prevTexcoordY = p.texcoordY;
+      p.texcoordX = scaleByPixelRatio(ts[i].clientX)/canvas.width;
+      p.texcoordY = 1.0-scaleByPixelRatio(ts[i].clientY)/canvas.height;
+      let dx = p.texcoordX-p.prevTexcoordX, dy = p.texcoordY-p.prevTexcoordY;
+      const ar = canvas.width/canvas.height;
+      if (ar<1) dx*=ar; if (ar>1) dy/=ar;
+      p.deltaX = dx; p.deltaY = dy;
+      p.moved = Math.abs(dx)>0 || Math.abs(dy)>0;
+    }
+  }, {passive: false});
+  window.addEventListener('touchend', () => { pointers[0].down = false; });
+
+  updateFrame();
+})();
+
+// ── INIT ──
+const savedTheme = localStorage.getItem('tw-theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+document.getElementById('theme-btn').textContent = savedTheme === 'dark' ? '☀' : '☾';
+
+const savedLang = localStorage.getItem('tw-lang') || 'zh';
+setLang(savedLang);
+initParticles();
+initReveal();
+</script>
+
+</body>
+</html>
