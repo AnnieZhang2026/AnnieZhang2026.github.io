@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="张芷萱的个人作品集 — 产品运营、数据分析与AI产品经验。" />
 <meta name="twitter:image" content="https://yourusername.github.io/og-cover.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23231c15'/><text x='16' y='25' font-family='Georgia,serif' font-size='23' font-style='italic' font-weight='700' fill='%23e8782a' text-anchor='middle'>Z</text></svg>">
 
 <style>
@@ -123,8 +123,10 @@ canvas#particles { position: absolute; inset: 0; z-index: 0; }
 /* ── SECTIONS ── */
 section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
 .section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
-.section-title { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 48px; color: var(--fg); }
-.section-title span { color: var(--accent); }
+.section-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4vw, 42px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 48px; color: #1c1208; }
+.section-title span { color: #d97706; }
+[data-theme="dark"] .section-title { color: #f5ede0; }
+[data-theme="dark"] .section-title span { color: #e8903c; }
 .section-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 500; color: var(--fg2); letter-spacing: 0.04em; margin-bottom: 44px; }
 
 /* ── NEWS ── */
@@ -153,38 +155,49 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
 .project-link { font-size: 12px; color: var(--accent); text-decoration: none; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
 .project-link:hover { background: var(--accent); color: #000; border-color: var(--accent); }
 
-/* ── LEARN & EXPLORE ── */
-#learn-explore { }
-.learn-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.learn-col-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-.vibe-list { display: flex; flex-direction: column; gap: 12px; }
-.vibe-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; cursor: pointer; transition: all 0.3s; opacity: 0; transform: translateY(16px); position: relative; overflow: hidden; }
-.vibe-card.visible { opacity: 1; transform: none; }
-.vibe-card:hover { border-color: var(--accent); background: var(--card-hover); }
-.vibe-card.active { border-color: var(--accent); background: var(--card-hover); }
-.vibe-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.vibe-card-info { flex: 1; min-width: 0; }
-.vibe-card-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-.vibe-card-desc { font-size: 12px; color: var(--fg3); line-height: 1.5; }
-.vibe-card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
-.vibe-tag { font-size: 10px; padding: 3px 8px; background: var(--bg3); color: var(--fg2); border-radius: 4px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.03em; }
-.vibe-card-preview { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
-.vibe-card.active .vibe-card-preview { display: block; }
-.vibe-preview-img { width: 100%; height: 160px; background: var(--bg3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 48px; margin-bottom: 10px; border: 1px solid var(--border); }
-.vibe-preview-desc { font-size: 13px; color: var(--fg2); line-height: 1.6; margin-bottom: 10px; }
-.vibe-open-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #000; background: var(--accent); padding: 6px 14px; border-radius: 6px; text-decoration: none; font-weight: 600; font-family: 'JetBrains Mono', monospace; transition: all 0.2s; border: none; cursor: pointer; }
-.vibe-open-btn:hover { background: var(--accent2); }
-.vibe-expand-icon { font-size: 18px; color: var(--fg3); transition: transform 0.3s; flex-shrink: 0; }
-.vibe-card.active .vibe-expand-icon { transform: rotate(180deg); color: var(--accent); }
+/* ── SHARE LIFE & INSIGHTS ── */
+#share-life { }
+.share-section-title { font-family: 'Playfair Display', Georgia, serif; font-size: 2.4rem; font-weight: 400; line-height: 1.2; margin-bottom: 32px; }
+.share-section-title .sh-black { color: #1c1208; }
+[data-theme="dark"] .share-section-title .sh-black { color: #f5ede0; }
+.share-section-title .sh-orange { color: #d97706; }
+.share-section-title .sh-amp { font-family: 'Times New Roman', Georgia, serif; }
+.share-wrap { display: grid; grid-template-columns: 1fr 260px; gap: 36px; align-items: start; }
 
-.xhs-card-list { display: flex; flex-direction: column; gap: 14px; }
-.xhs-ref-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; display: flex; gap: 14px; transition: all 0.3s; cursor: pointer; text-decoration: none; color: inherit; opacity: 0; transform: translateY(16px); }
-.xhs-ref-card.visible { opacity: 1; transform: none; }
-.xhs-ref-card:hover { border-color: var(--accent); background: var(--card-hover); transform: translateY(-2px); }
-.xhs-ref-thumb { width: 72px; height: 72px; border-radius: 8px; background: var(--bg3); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 28px; border: 1px solid var(--border); }
-.xhs-ref-body { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
-.xhs-ref-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
-.xhs-ref-meta { font-size: 11px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; }
+/* Horizontal scroll area */
+.share-scroll { position: relative; overflow: hidden; }
+.share-scroll::before,
+.share-scroll::after { content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none; }
+.share-scroll::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+.share-scroll::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+.share-scroll-inner { display: flex; gap: 24px; overflow-x: auto; padding: 8px 40px 16px 4px; scroll-behavior: smooth; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+.share-scroll-inner::-webkit-scrollbar { height: 4px; }
+.share-scroll-inner::-webkit-scrollbar-track { background: transparent; }
+.share-scroll-inner::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* Note card */
+.share-card { flex: 0 0 220px; background: #ffffff; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.04); text-decoration: none; color: inherit; transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s; display: flex; flex-direction: column; scroll-snap-align: start; position: relative; }
+.share-card:hover { transform: translateY(-5px); border-color: rgba(217,119,6,0.18); box-shadow: 0 12px 36px rgba(217,119,6,0.12), 0 2px 8px rgba(0,0,0,0.04); }
+.share-card::before { content: attr(data-frame); position: absolute; top: 12px; left: 14px; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 400; letter-spacing: 0.12em; color: #d97706; z-index: 2; background: rgba(255,255,255,0.85); padding: 3px 8px; border-radius: 4px; }
+.share-card-img { position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden; }
+.share-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.share-card:hover .share-card-img img { transform: scale(1.05); }
+.share-card-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 48px; user-select: none; }
+.share-card-body { background: #fff; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; border-top: 1px solid rgba(0,0,0,0.04); }
+.share-card-title { font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif; font-size: 14px; font-weight: 600; color: #1a1a1a; line-height: 1.4; flex: 1; min-width: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.share-card-like { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+.share-card-like svg { width: 14px; height: 14px; }
+.share-card-like span { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #1a1a1a; }
+
+/* Right profile */
+.share-profile { display: flex; flex-direction: column; gap: 20px; padding-top: 0; }
+.share-profile-intro { font-family: 'Inter', 'Noto Sans SC', sans-serif; font-size: 14px; font-weight: 300; color: #44403c; line-height: 1.8; }
+[data-theme="dark"] .share-profile-intro { color: #d6d3d1; }
+.share-stats-row { display: flex; gap: 32px; }
+.share-stat { display: flex; flex-direction: column; }
+.share-stat-num { font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 400; line-height: 1; background: linear-gradient(135deg, #d97706, #e8903c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+[data-theme="dark"] .share-stat-num { background: linear-gradient(135deg, #e8903c, #f0a858); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.share-stat-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 300; color: #a8a29e; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px; }
 
 /* ── TIMELINE ── */
 .timeline { position: relative; padding-left: 32px; }
@@ -274,7 +287,7 @@ footer span { color: var(--accent); }
   .hero-desc { margin: 0 auto 36px; }
   section { padding: 60px 20px; }
   .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
-  .learn-wrap { grid-template-columns: 1fr; gap: 40px; }
+  .share-wrap { grid-template-columns: 1fr; gap: 40px; }
   .github-repos-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -288,7 +301,7 @@ footer span { color: var(--accent); }
   <ul class="nav-links">
     <li><a href="#news" data-i18n="nav_news">News</a></li>
     <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
-    <li><a href="#learn-explore" data-i18n="nav_learn">Learn</a></li>
+    <li><a href="#share-life" data-i18n="nav_share">Share</a></li>
     <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
     <li><a href="#education" data-i18n="nav_education">Education</a></li>
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
@@ -424,98 +437,75 @@ footer span { color: var(--accent); }
 </section>
 
 <!-- LEARN & EXPLORE -->
-<section id="learn-explore">
-  <div class="section-label" data-i18n="section_learn">Learn & Explore</div>
-  <h2 class="section-title reveal">Learn & Explore</h2>
-  <div class="learn-wrap">
-    <!-- Left: Vibe Coding Projects -->
-    <div>
-      <div class="learn-col-title" data-i18n="learn_left_title">🛠️ Vibe Coding 作品</div>
-      <div class="vibe-list">
-        <div class="vibe-card" onclick="toggleVibeCard(this)">
-          <div class="vibe-card-header">
-            <div class="vibe-card-info">
-              <div class="vibe-card-title" data-i18n="vibe1_title">个人作品集网站</div>
-              <div class="vibe-card-desc" data-i18n="vibe1_desc">你现在看到的这个网站，基于模板 + AI 协作构建</div>
-            </div>
-            <span class="vibe-expand-icon">▸</span>
+<section id="share-life">
+  <div class="section-label" data-i18n="section_share">生活</div>
+  <h2 class="share-section-title reveal"><span class="sh-black">Share</span> <span class="sh-orange">Life <span class="sh-amp">&</span> Insights</span></h2>
+  <div class="share-wrap">
+    <!-- Left: Horizontal scrolling note cards -->
+    <div class="share-scroll">
+      <div class="share-scroll-inner">
+        <a class="share-card reveal" data-frame="诗集" href="http://xhslink.com/o/9dBdgC7jRWg" target="_blank" rel="noopener">
+          <div class="share-card-img">
+            <img src="share1.jpg" alt="原创诗集｜夏日终曲 八月来信">
           </div>
-          <div class="vibe-card-tags">
-            <span class="vibe-tag">Claude Code</span>
-            <span class="vibe-tag">HTML/CSS</span>
-            <span class="vibe-tag">GitHub Pages</span>
+          <div class="share-card-body">
+            <span class="share-card-title">原创诗集｜夏日终曲 八月来信 🌿</span>
+            <span class="share-card-like">
+              <svg viewBox="0 0 24 24" fill="#ef4444"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>2515</span>
+            </span>
           </div>
-          <div class="vibe-card-preview">
-            <div class="vibe-preview-img">🌐</div>
-            <div class="vibe-preview-desc" data-i18n="vibe1_preview">使用 Claude Code 从模板出发，逐步定制配色、内容、动效，完成从零到部署的全流程。</div>
-            <a class="vibe-open-btn" href="#" target="_blank" data-i18n="vibe1_btn">打开项目 ↗</a>
+        </a>
+        <a class="share-card reveal" data-frame="春日" href="http://xhslink.com/o/89MPetF0iJM" target="_blank" rel="noopener">
+          <div class="share-card-img">
+            <img src="share2.jpg" alt="春日颂歌｜风吟起舞，浪漫也复苏">
           </div>
-        </div>
-        <div class="vibe-card" onclick="toggleVibeCard(this)">
-          <div class="vibe-card-header">
-            <div class="vibe-card-info">
-              <div class="vibe-card-title" data-i18n="vibe2_title">待定项目二</div>
-              <div class="vibe-card-desc" data-i18n="vibe2_desc">下一个 vibe coding 作品，想法酝酿中</div>
-            </div>
-            <span class="vibe-expand-icon">▸</span>
+          <div class="share-card-body">
+            <span class="share-card-title">春日颂歌｜"风吟起舞，浪漫也复苏"</span>
+            <span class="share-card-like">
+              <svg viewBox="0 0 24 24" fill="#ef4444"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>573</span>
+            </span>
           </div>
-          <div class="vibe-card-tags">
-            <span class="vibe-tag">Figma</span>
-            <span class="vibe-tag">Trae</span>
-            <span class="vibe-tag">Vercel</span>
+        </a>
+        <a class="share-card reveal" data-frame="生日" href="http://xhslink.com/o/4AS0Sr4fpnM" target="_blank" rel="noopener">
+          <div class="share-card-img">
+            <img src="share4.jpg" alt="生日文案｜和所有的烦恼说拜拜～">
           </div>
-          <div class="vibe-card-preview">
-            <div class="vibe-preview-img">💡</div>
-            <div class="vibe-preview-desc" data-i18n="vibe2_preview">新的创意即将到来，敬请期待。</div>
-            <a class="vibe-open-btn" href="#" target="_blank" data-i18n="vibe2_btn">打开项目 ↗</a>
+          <div class="share-card-body">
+            <span class="share-card-title">生日文案｜和所有的烦恼说拜拜～</span>
+            <span class="share-card-like">
+              <svg viewBox="0 0 24 24" fill="#ef4444"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>4907</span>
+            </span>
           </div>
-        </div>
-        <div class="vibe-card" onclick="toggleVibeCard(this)">
-          <div class="vibe-card-header">
-            <div class="vibe-card-info">
-              <div class="vibe-card-title" data-i18n="vibe3_title">待定项目三</div>
-              <div class="vibe-card-desc" data-i18n="vibe3_desc">更多可能性，持续探索中</div>
-            </div>
-            <span class="vibe-expand-icon">▸</span>
+        </a>
+        <a class="share-card reveal" data-frame="文案" href="http://xhslink.com/o/8om4aSUxe1g" target="_blank" rel="noopener">
+          <div class="share-card-img">
+            <img src="share3.jpg" alt="原创文案｜一份给粉丝妹妹的远行礼物">
           </div>
-          <div class="vibe-card-tags">
-            <span class="vibe-tag">AI</span>
-            <span class="vibe-tag">NoCode</span>
-            <span class="vibe-tag">GitHub</span>
+          <div class="share-card-body">
+            <span class="share-card-title">原创文案｜一份给粉丝妹妹的远行礼物</span>
+            <span class="share-card-like">
+              <svg viewBox="0 0 24 24" fill="#ef4444"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <span>5172</span>
+            </span>
           </div>
-          <div class="vibe-card-preview">
-            <div class="vibe-preview-img">🔮</div>
-            <div class="vibe-preview-desc" data-i18n="vibe3_preview">探索 AI + NoCode 的无限可能。</div>
-            <a class="vibe-open-btn" href="#" target="_blank" data-i18n="vibe3_btn">打开项目 ↗</a>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
-    <!-- Right: Xiaohongshu Learning Notes -->
-    <div>
-      <div class="learn-col-title" data-i18n="learn_right_title">📕 小红书 · Vibe Coding 学习心得</div>
-      <div class="xhs-card-list">
-        <a class="xhs-ref-card" href="https://xhslink.com/m/AXVx0Fp4bm4" target="_blank" rel="noopener">
-          <div class="xhs-ref-thumb">📝</div>
-          <div class="xhs-ref-body">
-            <div class="xhs-ref-title" data-i18n="xhs1_title">Vibe Coding 入门笔记：如何用 AI 打造你的第一个网页</div>
-            <div class="xhs-ref-meta" data-i18n="xhs1_meta">小红书 · 桃柒</div>
-          </div>
-        </a>
-        <a class="xhs-ref-card" href="https://xhslink.com/m/AXVx0Fp4bm4" target="_blank" rel="noopener">
-          <div class="xhs-ref-thumb">🎨</div>
-          <div class="xhs-ref-body">
-            <div class="xhs-ref-title" data-i18n="xhs2_title">设计师转型产品：我的工具链分享</div>
-            <div class="xhs-ref-meta" data-i18n="xhs2_meta">小红书 · 桃柒</div>
-          </div>
-        </a>
-        <a class="xhs-ref-card" href="https://xhslink.com/m/AXVx0Fp4bm4" target="_blank" rel="noopener">
-          <div class="xhs-ref-thumb">🚀</div>
-          <div class="xhs-ref-body">
-            <div class="xhs-ref-title" data-i18n="xhs3_title">从 0 到 1 万粉丝：内容产品化的实践与思考</div>
-            <div class="xhs-ref-meta" data-i18n="xhs3_meta">小红书 · 桃柒</div>
-          </div>
-        </a>
+    <!-- Right: Profile info -->
+    <div class="share-profile">
+      <div class="share-profile-intro" data-i18n="share_bio">"建立最小的理想主义"<br>/随便写点什么<br>/ENFJ生活艺术家</div>
+      <div class="share-stats-row">
+        <div class="share-stat">
+          <span class="share-stat-num">1w+</span>
+          <span class="share-stat-label">Followers</span>
+        </div>
+        <div class="share-stat">
+          <span class="share-stat-num">10.2w+</span>
+          <span class="share-stat-label">Likes</span>
+        </div>
       </div>
     </div>
   </div>
@@ -563,7 +553,7 @@ footer span { color: var(--accent); }
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-label" data-i18n="section_skills">Tools</div>
-  <h2 class="section-title reveal">Skills & <span>Tools</span></h2>
+  <h2 class="section-title reveal">Skills <span class="sh-amp">&</span> <span>Tools</span></h2>
   <div class="skills-grid">
     <div class="skill-group">
       <div class="skill-cat" data-i18n="skill_cat1">数据分析</div>
@@ -667,21 +657,21 @@ footer span { color: var(--accent); }
 // ── i18n ──
 const i18n = {
   en: {
-    nav_news: 'News', nav_projects: 'Projects', nav_learn: 'Learn', nav_experience: 'Experience',
+    nav_news: 'News', nav_projects: 'Projects', nav_share: 'Life', nav_experience: 'Experience',
     nav_education: 'Education', nav_contact: 'Contact',
     hero_name: '<span>Hi</span>, I\'m <span>Zhixuan Zhang</span>',
     hero_tag: 'Product · AI · Strategy',
     hero_desc: 'MSc in Accounting at Southeast University, with internet product internship experience at SHEIN and Dewu. Passionate about exploring new things — where inspiration meets aesthetics. Aspiring to reshape product landscapes from a user perspective, delivering beauty to the world. Seeking product/AI internship opportunities.',
     btn_resume: '↓ Download Resume', btn_contact: 'Get in Touch',
     avatar_badge: '@ Southeast University', scroll_hint: 'scroll',
-    section_news: 'Latest', section_projects: 'Work', section_learn: 'Learn & Explore', section_exp: 'Career',
+    section_news: 'Latest', section_projects: 'Work', section_share: 'Life', section_exp: 'Career',
     section_edu: 'Academia', section_skills: 'Tools', section_contact: 'Connect',
     news_title: 'What\'s <span>New</span>', news_sub: 'What\'s New',
     projects_title: 'Vibe <span>Coding</span>', projects_sub: 'Projects',
-    learn_title: 'Learn <span>&</span> Explore', learn_sub: 'Learn & Explore',
+    share_title: 'Share Life & Insights', share_sub: 'Share Life & Insights',
     exp_title: '<span>Experience</span>', exp_sub: 'Experience',
     edu_title: '<span>Education</span>', edu_sub: 'Education',
-    skills_title: 'Skills & <span>Tools</span>', skills_sub: 'Skills & Tools',
+    skills_title: 'Skills <span class="sh-amp">&</span> <span>Tools</span>', skills_sub: 'Skills & Tools',
     contact_title: 'Get in <span>Touch</span>', contact_sub: 'Get in Touch',
     news_1: '🔍 Actively seeking <strong>product/AI internship roles</strong> — excited for new opportunities.',
     news_2: '🌍 Joined <strong>SHEIN Global Marketing</strong> as a Landing Page Product Intern.',
@@ -701,26 +691,7 @@ const i18n = {
     proj3_sub: 'Tools: AI · NoCode · API',
     proj3_desc: 'More explorations, more possibilities.',
     proj3_link: 'Coming Soon',
-    learn_left_title: '🛠️ Vibe Coding Works',
-    learn_right_title: '📕 Xiaohongshu · Learning Notes',
-    vibe1_title: 'Personal Portfolio Site',
-    vibe1_desc: 'The site you\'re viewing now — built with a template + AI collaboration',
-    vibe1_preview: 'Used Claude Code to customize from a template — colors, content, animations — completing the entire journey from scratch to deployment.',
-    vibe1_btn: 'Open Project ↗',
-    vibe2_title: 'Project TBD II',
-    vibe2_desc: 'Next vibe coding project, ideas brewing',
-    vibe2_preview: 'New creations coming soon. Stay tuned.',
-    vibe2_btn: 'Open Project ↗',
-    vibe3_title: 'Project TBD III',
-    vibe3_desc: 'More possibilities, continuously exploring',
-    vibe3_preview: 'Exploring the limitless potential of AI + NoCode.',
-    vibe3_btn: 'Open Project ↗',
-    xhs1_title: 'Vibe Coding Starter Guide: Building Your First Webpage with AI',
-    xhs1_meta: 'Xiaohongshu · 桃柒',
-    xhs2_title: 'Designer to PM Transition: My Toolchain',
-    xhs2_meta: 'Xiaohongshu · 桃柒',
-    xhs3_title: 'From 0 to 10K Followers: Content Productization in Practice',
-    xhs3_meta: 'Xiaohongshu · 桃柒',
+    share_bio: '"Build the smallest idealism"<br>/just scribble something<br>/ENFJ life artist',
     exp1_role: 'Landing Page Product Intern',
     exp2_role: 'Product Operations Intern · Product Research Center',
     exp2_desc: 'Chatbot project: Identified user pain points, improved COACH brand service resolution rate by 10.2% and reduced complaint rate by 8.5%. Content creation: Designed content templates and SOP, published 73 pieces in Q4 with 434K+ total exposure. Sentiment tracking: Designed escalation standards and built a closed-loop workflow, resolving 1,679 cases in Q4, with a 38% month-over-month decrease.',
@@ -744,18 +715,18 @@ const i18n = {
     github_error: 'Failed to load repos.'
   },
   zh: {
-    nav_news: '动态', nav_projects: '项目', nav_learn: '学习', nav_experience: '经历',
+    nav_news: '动态', nav_projects: '项目', nav_share: '生活', nav_experience: '经历',
     nav_education: '教育', nav_contact: '联系',
     hero_name: '<span>Hi</span>，我是<span>张芷萱</span>',
     hero_tag: '产品 · AI · 战略',
     hero_desc: '东南大学会计硕士在读，拥有互联网产品实习经验（SHEIN、得物），热衷于探索新事物，灵感与美感同时在线，渴望改变产品格局，从用户视角出发，传递世界的美好，期望在产品/AI方向实习岗位上发光发热。',
     btn_resume: '↓ 下载简历', btn_contact: '联系我',
     avatar_badge: '@ 东南大学', scroll_hint: '向下滚动',
-    section_news: '最新动态', section_projects: '精选项目', section_learn: '学习 & 探索', section_exp: '实习经历',
+    section_news: '最新动态', section_projects: '精选项目', section_share: '生活', section_exp: '实习经历',
     section_edu: '教育背景', section_skills: '技能工具', section_contact: '联系方式',
     news_title: '最新 <span>动态</span>', news_sub: '最新动态',
     projects_title: 'Vibe <span>Coding</span>', projects_sub: '精选项目',
-    learn_title: '学习 <span>&</span> 探索', learn_sub: '学习 & 探索',
+    share_title: 'Share <span>Life & Insights</span>', share_sub: 'Share Life & Insights',
     exp_title: '实习 <span>经历</span>', exp_sub: '实习经历',
     edu_title: '教育 <span>背景</span>', edu_sub: '教育背景',
     skills_title: '技能 <span>工具</span>', skills_sub: '技能工具',
@@ -778,26 +749,7 @@ const i18n = {
     proj3_sub: '工具：AI · NoCode · API',
     proj3_desc: '更多探索，更多可能。',
     proj3_link: '即将开放',
-    learn_left_title: '🛠️ Vibe Coding 作品',
-    learn_right_title: '📕 小红书 · Vibe Coding 学习心得',
-    vibe1_title: '个人作品集网站',
-    vibe1_desc: '你现在看到的这个网站，基于模板 + AI 协作构建',
-    vibe1_preview: '使用 Claude Code 从模板出发，逐步定制配色、内容、动效，完成从零到部署的全流程。',
-    vibe1_btn: '打开项目 ↗',
-    vibe2_title: '待定项目二',
-    vibe2_desc: '下一个 vibe coding 作品，想法酝酿中',
-    vibe2_preview: '新的创意即将到来，敬请期待。',
-    vibe2_btn: '打开项目 ↗',
-    vibe3_title: '待定项目三',
-    vibe3_desc: '更多可能性，持续探索中',
-    vibe3_preview: '探索 AI + NoCode 的无限可能。',
-    vibe3_btn: '打开项目 ↗',
-    xhs1_title: 'Vibe Coding 入门笔记：如何用 AI 打造你的第一个网页',
-    xhs1_meta: '小红书 · 桃柒',
-    xhs2_title: '设计师转型产品：我的工具链分享',
-    xhs2_meta: '小红书 · 桃柒',
-    xhs3_title: '从 0 到 1 万粉丝：内容产品化的实践与思考',
-    xhs3_meta: '小红书 · 桃柒',
+    share_bio: '"建立最小的理想主义"<br>/随便写点什么<br>/ENFJ生活艺术家',
     exp1_role: '落地页产品实习生',
     exp2_role: '产品运营实习生 · 商品研究中心',
     exp2_desc: '客服机器人项目：精准定位用户痛点，推动 COACH 品牌客服解决率提升 10.2%，客诉率下降 8.5%。科普内容搭建：自主设计图文模板及发布 SOP，Q4 累计发布 73 篇内容，总曝光 43.4 万+。舆情跟踪：设计舆情分级标准与闭环流程，Q4 累计解决舆情 1679 条，环比下降 38%。',
@@ -907,19 +859,11 @@ function initReveal() {
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal, .news-item, .project-card, .tl-item, .edu-card, .skill-group, .vibe-card, .xhs-ref-card').forEach(el => obs.observe(el));
+  document.querySelectorAll('.reveal, .news-item, .project-card, .tl-item, .edu-card, .skill-group, .share-card').forEach(el => obs.observe(el));
 }
 
 document.querySelectorAll('.project-card').forEach((card, i) => { card.style.transitionDelay = (i * 0.1) + 's'; });
 document.querySelectorAll('.tl-item').forEach((item, i) => { item.style.transitionDelay = (i * 0.07) + 's'; });
-
-// ── VIBE CARD TOGGLE ──
-function toggleVibeCard(card) {
-  const wasActive = card.classList.contains('active');
-  // Close all cards first
-  document.querySelectorAll('.vibe-card').forEach(c => c.classList.remove('active'));
-  if (!wasActive) card.classList.add('active');
-}
 
 // ── CONTACT FORM ──
 function sendMsg() {
@@ -1012,13 +956,13 @@ function renderGithubRepos() {
   if (!canvas) return;
 
   const COLOR = '#ea7a30';
-  const SPLAT_RADIUS = 0.08;
-  const SPLAT_FORCE = 2000;
+  const SPLAT_RADIUS = 0.07;
+  const SPLAT_FORCE = 2100;
   const CURL = 3;
   const PRESSURE = 0.1;
   const PRESSURE_ITERATIONS = 20;
-  const DENSITY_DISSIPATION = 3.5;
-  const VELOCITY_DISSIPATION = 2;
+  const DENSITY_DISSIPATION = 2.7;
+  const VELOCITY_DISSIPATION = 1.5;
   const COLOR_UPDATE_SPEED = 10;
   const SIM_RESOLUTION = 128;
   const DYE_RESOLUTION = 1440;
@@ -1207,7 +1151,7 @@ function renderGithubRepos() {
   function hexToRGB(hex) {
     let val = hex.replace('#','');
     if (val.length===3) val=val[0]+val[0]+val[1]+val[1]+val[2]+val[2];
-    return { r: parseInt(val.slice(0,2),16)/255*0.15, g: parseInt(val.slice(2,4),16)/255*0.15, b: parseInt(val.slice(4,6),16)/255*0.15 };
+    return { r: parseInt(val.slice(0,2),16)/255*0.08, g: parseInt(val.slice(2,4),16)/255*0.08, b: parseInt(val.slice(4,6),16)/255*0.08 };
   }
 
   function generateColor() {
