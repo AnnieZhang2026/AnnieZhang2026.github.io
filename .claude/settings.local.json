@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:teemoweng.github.io)",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(curl -sL --connect-timeout 10 -H \"User-Agent: Mozilla/5.0 \\(iPhone; CPU iPhone OS 16_0 like Mac OS X\\) AppleWebKit/605.1.15 \\(KHTML, like Gecko\\) Version/16.0 Mobile/15E148 Safari/604.1\" \"https://www.xiaohongshu.com/discovery/item/66caba82000000001d0172e0\")",
+      "Bash(curl *)",
+      "WebFetch(domain:gracexygu.github.io)",
+      "Bash(start *)",
+      "Bash(cp \"C:\\\\Users\\\\china\\\\Desktop\\\\参考图\\\\1.png\" \"E:\\\\Claude code\\\\做一个网页\\\\个人作品集\\\\share1.png\")",
+      "Bash(cp \"C:\\\\Users\\\\china\\\\Desktop\\\\参考图\\\\2.png\" \"E:\\\\Claude code\\\\做一个网页\\\\个人作品集\\\\share2.png\")",
+      "Bash(cp \"C:\\\\Users\\\\china\\\\Desktop\\\\参考图\\\\3.png\" \"E:\\\\Claude code\\\\做一个网页\\\\个人作品集\\\\share3.png\")",
+      "Bash(cp \"C:\\\\Users\\\\china\\\\Desktop\\\\参考图\\\\4.png\" \"E:\\\\Claude code\\\\做一个网页\\\\个人作品集\\\\share4.png\")",
+      "Bash(cp \"C:/Users/china/Desktop/参考图/1.jpg\" \"E:/Claude code/做一个网页/个人作品集/share1.jpg\")",
+      "Bash(cp \"C:/Users/china/Desktop/参考图/2.jpg\" \"E:/Claude code/做一个网页/个人作品集/share2.jpg\")",
+      "Bash(cp \"C:/Users/china/Desktop/参考图/3.jpg\" \"E:/Claude code/做一个网页/个人作品集/share3.jpg\")",
+      "Bash(cp \"C:/Users/china/Desktop/参考图/4.jpg\" \"E:/Claude code/做一个网页/个人作品集/share4.jpg\")"
+    ]
+  }
+}

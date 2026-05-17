@@ -124,9 +124,9 @@ canvas#particles { position: absolute; inset: 0; z-index: 0; }
 section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
 .section-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
 .section-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4vw, 42px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 48px; color: #1c1208; }
-.section-title span { color: #d97706; }
+.section-title span { color: var(--accent); }
 [data-theme="dark"] .section-title { color: #f5ede0; }
-[data-theme="dark"] .section-title span { color: #e8903c; }
+[data-theme="dark"] .section-title span { color: var(--accent); }
 .section-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 500; color: var(--fg2); letter-spacing: 0.04em; margin-bottom: 44px; }
 
 /* ── NEWS ── */
@@ -157,11 +157,11 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
 
 /* ── SHARE LIFE & INSIGHTS ── */
 #share-life { }
-.share-section-title { font-family: 'Playfair Display', Georgia, serif; font-size: 2.4rem; font-weight: 400; line-height: 1.2; margin-bottom: 32px; }
+.share-section-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 4vw, 42px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 48px; }
 .share-section-title .sh-black { color: #1c1208; }
 [data-theme="dark"] .share-section-title .sh-black { color: #f5ede0; }
-.share-section-title .sh-orange { color: #d97706; }
-.share-section-title .sh-amp { font-family: 'Times New Roman', Georgia, serif; }
+.share-section-title .sh-orange { color: var(--accent); }
+.sh-amp { font-family: 'Times New Roman', serif !important; }
 .share-wrap { display: grid; grid-template-columns: 1fr 260px; gap: 36px; align-items: start; }
 
 /* Horizontal scroll area */
@@ -299,11 +299,12 @@ footer span { color: var(--accent); }
 <nav>
   <div class="nav-logo">zx<span style="color:var(--fg3)">.</span>dev</div>
   <ul class="nav-links">
-    <li><a href="#news" data-i18n="nav_news">News</a></li>
     <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
-    <li><a href="#share-life" data-i18n="nav_share">Share</a></li>
     <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+    <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
     <li><a href="#education" data-i18n="nav_education">Education</a></li>
+    <li><a href="#news" data-i18n="nav_news">News</a></li>
+    <li><a href="#share-life" data-i18n="nav_share">Share</a></li>
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
   </ul>
   <div class="nav-controls">
@@ -345,39 +346,7 @@ footer span { color: var(--accent); }
   </div>
 </section>
 
-<!-- NEWS -->
-<section id="news">
-  <div class="section-label" data-i18n="section_news">Latest</div>
-  <h2 class="section-title reveal">What's <span>New</span></h2>
-  <div class="news-list">
-    <div class="news-item">
-      <div class="news-date">2026.06</div>
-      <div class="news-text" data-i18n="news_1">🔍 正在积极寻找<strong>产品/AI方向实习岗位</strong>，期待新的机遇与挑战。</div>
-    </div>
-    <div class="news-item">
-      <div class="news-date">2026.01</div>
-      <div class="news-text" data-i18n="news_2">🌍 加入 <strong>SHEIN Global Marketing</strong>，担任落地页产品实习生。</div>
-    </div>
-    <div class="news-item">
-      <div class="news-date">2025.09</div>
-      <div class="news-text" data-i18n="news_3">🎓 入读<strong>东南大学经济管理学院</strong>会计专业硕士。</div>
-    </div>
-    <div class="news-item">
-      <div class="news-date">2024.11</div>
-      <div class="news-text" data-i18n="news_4">🤖 加入<strong>得物商品研究中心</strong>，担任产品运营实习生，负责客服机器人及舆情项目。</div>
-    </div>
-    <div class="news-item">
-      <div class="news-date">2023.10</div>
-      <div class="news-text" data-i18n="news_5">🏆 获<strong>全国高校商业精英挑战赛品牌策划竞赛国家级二等奖</strong>（团队负责人）。</div>
-    </div>
-    <div class="news-item">
-      <div class="news-date">2022.09</div>
-      <div class="news-text" data-i18n="news_6">🚀 启动小红书个人账号<strong>「桃柒」</strong>，从0到1万+粉丝，验证内容产品化路径。</div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS (placeholder for vibe coding) -->
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-label" data-i18n="section_projects">Work</div>
   <h2 class="section-title reveal">Projects</h2>
@@ -436,7 +405,121 @@ footer span { color: var(--accent); }
   </div>
 </section>
 
-<!-- LEARN & EXPLORE -->
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label" data-i18n="section_exp">Career</div>
+  <h2 class="section-title reveal">Experience <span>Timeline</span></h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-period">2026.01 – 2026.04</div>
+      <div class="tl-role" data-i18n="exp1_role">落地页产品实习生</div>
+      <div class="tl-company">SHEIN · Global Marketing</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">2024.11 – 2025.02</div>
+      <div class="tl-role" data-i18n="exp2_role">产品运营实习生 · 商品研究中心</div>
+      <div class="tl-company">上海得物信息集团有限公司</div>
+      <div class="tl-desc" data-i18n="exp2_desc">客服机器人项目：精准定位用户痛点，推动 COACH 品牌客服解决率提升 10.2%，客诉率下降 8.5%。科普内容搭建：自主设计图文模板及发布 SOP，Q4 累计发布 73 篇内容，总曝光 43.4 万+。舆情跟踪：设计舆情分级标准与闭环流程，Q4 累计解决舆情 1679 条，环比下降 38%。</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label" data-i18n="section_skills">Tools</div>
+  <h2 class="section-title reveal">Skills <span><span class="sh-amp">&</span> Tools</span></h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-cat" data-i18n="skill_cat1">数据分析</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Stata</span>
+        <span class="skill-tag">SPSS</span>
+        <span class="skill-tag">Excel</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat" data-i18n="skill_cat2">可视化 & 设计</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Canva</span>
+        <span class="skill-tag">PPT</span>
+        <span class="skill-tag">Axure</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat" data-i18n="skill_cat3">AI 工具</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Claude Code</span>
+        <span class="skill-tag">Trae</span>
+        <span class="skill-tag">VSCode</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat" data-i18n="skill_cat4">办公协作</div>
+      <div class="skill-tags">
+        <span class="skill-tag">飞书</span>
+        <span class="skill-tag">钉钉</span>
+        <span class="skill-tag">Xmind</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label" data-i18n="section_edu">Academia</div>
+  <h2 class="section-title reveal">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-period">2025.09 – 至今</div>
+      <div class="edu-school" data-i18n="edu1_school">东南大学（985）</div>
+      <div class="edu-degree" data-i18n="edu1_degree">经济管理学院 · 会计专业硕士</div>
+      <div class="edu-honors">核心课程：大数据分析方法与应用、人工智能与会计信息技术、管理经济学</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">2021.09 – 2025.07</div>
+      <div class="edu-school" data-i18n="edu2_school">南京信息工程大学（双一流）</div>
+      <div class="edu-degree" data-i18n="edu2_degree">商学院 · 会计学学士</div>
+      <div class="edu-honors" data-i18n="edu2_honors">专业排名：1/105 · GPA：4.23/5 · CET4：577 · CET6：547<br>🏅 国家奖学金（综测第一）· 校长奖学金 · 连续两年校一等奖学金 · 校三好学生标兵 · 校优秀学生干部</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-label" data-i18n="section_news">Latest</div>
+  <h2 class="section-title reveal">What's <span>New</span></h2>
+  <div class="news-list">
+    <div class="news-item">
+      <div class="news-date">2026.06</div>
+      <div class="news-text" data-i18n="news_1">🔍 正在积极寻找<strong>产品/AI方向实习岗位</strong>，期待新的机遇与挑战。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2026.01</div>
+      <div class="news-text" data-i18n="news_2">🌍 加入 <strong>SHEIN Global Marketing</strong>，担任落地页产品实习生。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2025.09</div>
+      <div class="news-text" data-i18n="news_3">🎓 入读<strong>东南大学经济管理学院</strong>会计专业硕士。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2024.11</div>
+      <div class="news-text" data-i18n="news_4">🤖 加入<strong>得物商品研究中心</strong>，担任产品运营实习生，负责客服机器人及舆情项目。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2023.10</div>
+      <div class="news-text" data-i18n="news_5">🏆 获<strong>全国高校商业精英挑战赛品牌策划竞赛国家级二等奖</strong>（团队负责人）。</div>
+    </div>
+    <div class="news-item">
+      <div class="news-date">2022.09</div>
+      <div class="news-text" data-i18n="news_6">🚀 启动小红书个人账号<strong>「桃柒」</strong>，从0到1万+粉丝，验证内容产品化路径。</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARE LIFE -->
 <section id="share-life">
   <div class="section-label" data-i18n="section_share">生活</div>
   <h2 class="share-section-title reveal"><span class="sh-black">Share</span> <span class="sh-orange">Life <span class="sh-amp">&</span> Insights</span></h2>
@@ -511,88 +594,6 @@ footer span { color: var(--accent); }
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-label" data-i18n="section_exp">Career</div>
-  <h2 class="section-title reveal">Experience <span>Timeline</span></h2>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-period">2026.01 – 2026.04</div>
-      <div class="tl-role" data-i18n="exp1_role">落地页产品实习生</div>
-      <div class="tl-company">SHEIN · Global Marketing</div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-period">2024.11 – 2025.02</div>
-      <div class="tl-role" data-i18n="exp2_role">产品运营实习生 · 商品研究中心</div>
-      <div class="tl-company">上海得物信息集团有限公司</div>
-      <div class="tl-desc" data-i18n="exp2_desc">客服机器人项目：精准定位用户痛点，推动 COACH 品牌客服解决率提升 10.2%，客诉率下降 8.5%。科普内容搭建：自主设计图文模板及发布 SOP，Q4 累计发布 73 篇内容，总曝光 43.4 万+。舆情跟踪：设计舆情分级标准与闭环流程，Q4 累计解决舆情 1679 条，环比下降 38%。</div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="section-label" data-i18n="section_edu">Academia</div>
-  <h2 class="section-title reveal">Education</h2>
-  <div class="edu-grid">
-    <div class="edu-card">
-      <div class="edu-period">2025.09 – 至今</div>
-      <div class="edu-school" data-i18n="edu1_school">东南大学（985）</div>
-      <div class="edu-degree" data-i18n="edu1_degree">经济管理学院 · 会计专业硕士</div>
-      <div class="edu-honors">核心课程：大数据分析方法与应用、人工智能与会计信息技术、管理经济学</div>
-    </div>
-    <div class="edu-card">
-      <div class="edu-period">2021.09 – 2025.07</div>
-      <div class="edu-school" data-i18n="edu2_school">南京信息工程大学（双一流）</div>
-      <div class="edu-degree" data-i18n="edu2_degree">商学院 · 会计学学士</div>
-      <div class="edu-honors" data-i18n="edu2_honors">专业排名：1/105 · GPA：4.23/5 · CET4：577 · CET6：547<br>🏅 国家奖学金（综测第一）· 校长奖学金 · 连续两年校一等奖学金 · 校三好学生标兵 · 校优秀学生干部</div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label" data-i18n="section_skills">Tools</div>
-  <h2 class="section-title reveal">Skills <span class="sh-amp">&</span> <span>Tools</span></h2>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-cat" data-i18n="skill_cat1">数据分析</div>
-      <div class="skill-tags">
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Stata</span>
-        <span class="skill-tag">SPSS</span>
-        <span class="skill-tag">Excel</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-cat" data-i18n="skill_cat2">可视化 & 设计</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Canva</span>
-        <span class="skill-tag">PPT</span>
-        <span class="skill-tag">Axure</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-cat" data-i18n="skill_cat3">AI 工具</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Claude Code</span>
-        <span class="skill-tag">Trae</span>
-        <span class="skill-tag">VSCode</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-cat" data-i18n="skill_cat4">办公协作</div>
-      <div class="skill-tags">
-        <span class="skill-tag">飞书</span>
-        <span class="skill-tag">钉钉</span>
-        <span class="skill-tag">Xmind</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-label" data-i18n="section_contact">Connect</div>
@@ -657,8 +658,7 @@ footer span { color: var(--accent); }
 // ── i18n ──
 const i18n = {
   en: {
-    nav_news: 'News', nav_projects: 'Projects', nav_share: 'Life', nav_experience: 'Experience',
-    nav_education: 'Education', nav_contact: 'Contact',
+    nav_news: 'News', nav_projects: 'Projects', nav_experience: 'Experience', nav_skills: 'Skills', nav_education: 'Education', nav_share: 'Life', nav_contact: 'Contact',
     hero_name: '<span>Hi</span>, I\'m <span>Zhixuan Zhang</span>',
     hero_tag: 'Product · AI · Strategy',
     hero_desc: 'MSc in Accounting at Southeast University, with internet product internship experience at SHEIN and Dewu. Passionate about exploring new things — where inspiration meets aesthetics. Aspiring to reshape product landscapes from a user perspective, delivering beauty to the world. Seeking product/AI internship opportunities.',
@@ -671,7 +671,7 @@ const i18n = {
     share_title: 'Share Life & Insights', share_sub: 'Share Life & Insights',
     exp_title: '<span>Experience</span>', exp_sub: 'Experience',
     edu_title: '<span>Education</span>', edu_sub: 'Education',
-    skills_title: 'Skills <span class="sh-amp">&</span> <span>Tools</span>', skills_sub: 'Skills & Tools',
+    skills_title: 'Skills <span><span class="sh-amp">&</span> Tools</span>', skills_sub: 'Skills & Tools',
     contact_title: 'Get in <span>Touch</span>', contact_sub: 'Get in Touch',
     news_1: '🔍 Actively seeking <strong>product/AI internship roles</strong> — excited for new opportunities.',
     news_2: '🌍 Joined <strong>SHEIN Global Marketing</strong> as a Landing Page Product Intern.',
@@ -715,8 +715,7 @@ const i18n = {
     github_error: 'Failed to load repos.'
   },
   zh: {
-    nav_news: '动态', nav_projects: '项目', nav_share: '生活', nav_experience: '经历',
-    nav_education: '教育', nav_contact: '联系',
+    nav_news: '动态', nav_projects: '项目', nav_experience: '经历', nav_skills: '技能', nav_education: '教育', nav_share: '生活', nav_contact: '联系',
     hero_name: '<span>Hi</span>，我是<span>张芷萱</span>',
     hero_tag: '产品 · AI · 战略',
     hero_desc: '东南大学会计硕士在读，拥有互联网产品实习经验（SHEIN、得物），热衷于探索新事物，灵感与美感同时在线，渴望改变产品格局，从用户视角出发，传递世界的美好，期望在产品/AI方向实习岗位上发光发热。',
