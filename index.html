@@ -26,6 +26,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23231c15'/><text x='16' y='25' font-family='Georgia,serif' font-size='23' font-style='italic' font-weight='700' fill='%23e8782a' text-anchor='middle'>Z</text></svg>">
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/examples/jsm/environments/RoomEnvironment.js": "https://unpkg.com/three@0.160.0/examples/jsm/environments/RoomEnvironment.js" } }
+</script>
 
 <style>
 :root {
@@ -231,20 +234,12 @@ section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
 .skill-tag { font-size: 12px; padding: 4px 10px; background: var(--bg3); color: var(--fg2); border-radius: 6px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; }
 
 /* ── CONTACT ── */
-.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-wrap { max-width: 500px; }
 .contact-info p { color: var(--fg2); line-height: 1.75; margin-bottom: 28px; font-size: 15px; }
 .contact-links { display: flex; flex-direction: column; gap: 12px; }
 .contact-link { display: flex; align-items: center; gap: 12px; color: var(--fg2); text-decoration: none; font-size: 14px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s; }
 .contact-link:hover { border-color: var(--accent); color: var(--accent); }
 .contact-link-icon { width: 20px; text-align: center; color: var(--accent); }
-.contact-form { display: flex; flex-direction: column; gap: 14px; }
-.form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-label { font-size: 12px; color: var(--fg3); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; }
-.form-input, .form-textarea { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; color: var(--fg); font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; transition: border-color 0.2s; outline: none; }
-.form-input:focus, .form-textarea:focus { border-color: var(--accent); }
-.form-textarea { min-height: 120px; resize: vertical; }
-.form-submit { padding: 12px; background: var(--accent); color: #000; border: none; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; font-family: 'Noto Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif; transition: all 0.2s; margin-top: 4px; }
-.form-submit:hover { background: var(--accent2); }
 
 /* ── FOOTER ── */
 footer { border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; color: var(--fg3); font-size: 12px; font-family: 'JetBrains Mono', monospace; }
@@ -286,7 +281,6 @@ footer span { color: var(--accent); }
   .hero-actions { justify-content: center; }
   .hero-desc { margin: 0 auto 36px; }
   section { padding: 60px 20px; }
-  .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
   .share-wrap { grid-template-columns: 1fr; gap: 40px; }
   .github-repos-grid { grid-template-columns: 1fr; }
 }
@@ -353,7 +347,7 @@ footer span { color: var(--accent); }
   <div class="projects-grid">
 	    <div class="project-card">
 	      <div style="position:relative;">
-	        <img src="vb1.png" alt="项目一：个人作品集" style="width:100%;height:180px;object-fit:cover;display:block;">
+	        <img src="vb1.1.jpg" alt="项目一：个人作品集" style="width:100%;height:180px;object-fit:cover;display:block;">
 	      </div>
       <div class="project-body">
         <div class="project-title" data-i18n="proj1_title">项目一：个人作品集</div>
@@ -403,12 +397,13 @@ footer span { color: var(--accent); }
       <div class="tl-period">2026.01 – 2026.04</div>
       <div class="tl-role" data-i18n="exp1_role">落地页产品实习生</div>
       <div class="tl-company">SHEIN · Global Marketing</div>
+      <div class="tl-desc" data-i18n="exp1_desc">在SHEIN担任营销落地页产品实习生期间，创新利用 Claude Code 与 Figma MCP 工具链重构全链路竞品监控工作流，成功推动近 10 项核心页面组件优化需求进入 PRD 评审与研发排期。</div>
     </div>
     <div class="tl-item">
       <div class="tl-period">2024.11 – 2025.02</div>
-      <div class="tl-role" data-i18n="exp2_role">产品运营实习生 · 商品研究中心</div>
-      <div class="tl-company">上海得物信息集团有限公司</div>
-      <div class="tl-desc" data-i18n="exp2_desc">客服机器人项目：精准定位用户痛点，推动 COACH 品牌客服解决率提升 10.2%，客诉率下降 8.5%。科普内容搭建：自主设计图文模板及发布 SOP，Q4 累计发布 73 篇内容，总曝光 43.4 万+。舆情跟踪：设计舆情分级标准与闭环流程，Q4 累计解决舆情 1679 条，环比下降 38%。</div>
+      <div class="tl-role" data-i18n="exp2_role">产品运营实习生</div>
+      <div class="tl-company">得物 · 商品研究中心</div>
+      <div class="tl-desc" data-i18n="exp2_desc">在得物担任产品运营实习生期间，参与客服机器人项目和站外舆情跟踪项目，通过深挖海量客诉工单并将其中的非结构化痛点抽象为标准化需求，参与智能客服机器人问答规则配置与功能落地，成功推动重点品牌客诉率下降。</div>
     </div>
   </div>
 </section>
@@ -471,7 +466,7 @@ footer span { color: var(--accent); }
       <div class="edu-period">2021.09 – 2025.07</div>
       <div class="edu-school" data-i18n="edu2_school">南京信息工程大学（双一流）</div>
       <div class="edu-degree" data-i18n="edu2_degree">商学院 · 会计学学士</div>
-      <div class="edu-honors" data-i18n="edu2_honors">专业排名：1/105 · GPA：4.23/5 · CET4：577 · CET6：547<br>🏅 国家奖学金（综测第一）· 校长奖学金 · 连续两年校一等奖学金 · 校三好学生标兵 · 校优秀学生干部</div>
+      <div class="edu-honors" data-i18n="edu2_honors">专业排名：1/105 · GPA：4.23/5<br>国家奖学金· 校长奖学金等</div>
     </div>
   </div>
 </section>
@@ -587,7 +582,9 @@ footer span { color: var(--accent); }
 <section id="contact">
   <div class="section-label" data-i18n="section_contact">Connect</div>
   <h2 class="section-title reveal">Get in <span>Touch</span></h2>
-  <div class="contact-wrap">
+  <div style="position:relative;overflow:hidden;min-height:360px;">
+    <canvas id="ballpit-canvas" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+    <div class="contact-wrap" style="position:relative;z-index:1;">
     <div class="contact-info reveal">
       <p data-i18n="contact_desc">正在寻找产品/AI方向实习岗位。如有机会或想交流，欢迎联系！</p>
       <div class="contact-links">
@@ -595,22 +592,12 @@ footer span { color: var(--accent); }
           <span class="contact-link-icon">✉</span>
           1731863264@qq.com
         </a>
+        <a class="contact-link" href="https://github.com/AnnieZhang2026" target="_blank" rel="noopener">
+          <span class="contact-link-icon">⌥</span>
+          <span data-i18n="contact_github">GitHub 主页</span>
+        </a>
       </div>
     </div>
-    <div class="contact-form reveal">
-      <div class="form-group">
-        <label class="form-label" data-i18n="form_name">姓名</label>
-        <input class="form-input" type="text" placeholder="你的名字" id="f-name">
-      </div>
-      <div class="form-group">
-        <label class="form-label" data-i18n="form_email">邮箱</label>
-        <input class="form-input" type="email" placeholder="your@email.com" id="f-email">
-      </div>
-      <div class="form-group">
-        <label class="form-label" data-i18n="form_msg">留言</label>
-        <textarea class="form-textarea" placeholder="你好，我想和你交流..." id="f-msg"></textarea>
-      </div>
-      <button class="form-submit" onclick="sendMsg()" data-i18n="form_send">发送消息 →</button>
     </div>
   </div>
 </section>
@@ -681,17 +668,18 @@ const i18n = {
     proj3_link: 'Coming Soon',
     share_bio: '"Build the smallest idealism"<br>/just scribble something<br>/ENFJ life artist',
     exp1_role: 'Landing Page Product Intern',
-    exp2_role: 'Product Operations Intern · Product Research Center',
-    exp2_desc: 'Chatbot project: Identified user pain points, improved COACH brand service resolution rate by 10.2% and reduced complaint rate by 8.5%. Content creation: Designed content templates and SOP, published 73 pieces in Q4 with 434K+ total exposure. Sentiment tracking: Designed escalation standards and built a closed-loop workflow, resolving 1,679 cases in Q4, with a 38% month-over-month decrease.',
+    exp1_desc: 'During my internship as a Marketing Landing Page Product Intern at SHEIN, I innovatively leveraged the Claude Code and Figma MCP toolchain to rebuild the end-to-end competitive monitoring workflow, successfully driving nearly 10 core page component optimization requirements into PRD review and R&D scheduling.',
+    exp2_role: 'Product Operations Intern',
+    exp2_desc: 'During my product operations internship at Dewu, I participated in the customer service chatbot project and external sentiment tracking project. By deeply analyzing massive complaint tickets and abstracting unstructured pain points into standardized requirements, I contributed to configuring the chatbot\'s Q&A rules and implementing functionalities, successfully driving down complaint rates for key brands.',
     edu1_school: 'Southeast University (985)',
     edu1_degree: 'MSc in Accounting · School of Economics & Management',
     edu2_school: 'Nanjing University of Information Science & Technology (Double First-Class)',
     edu2_degree: 'Bachelor\'s in Accounting · Business School',
-    edu2_honors: 'Rank: 1/105 · GPA: 4.23/5 · CET4: 577 · CET6: 547<br>🏅 National Scholarship (Top Composite Score) · President\'s Scholarship · First-Class Scholarship ×2 · Outstanding Student · Outstanding Student Leader',
+    edu2_honors: 'Rank: 1/105 · GPA: 4.23/5<br>National Scholarship · President\'s Scholarship, etc.',
     skill_cat1: 'Data Analysis', skill_cat2: 'Visual & Design',
     skill_cat3: 'AI Tools', skill_cat4: 'Collaboration',
+    contact_github: 'GitHub Profile',
     contact_desc: 'Actively seeking product/AI internship roles. If you have an opportunity or just want to chat, feel free to reach out!',
-    form_name: 'Name', form_email: 'Email', form_msg: 'Message', form_send: 'Send Message →',
     typing_roles: ['Product Builder', 'AI Enthusiast', 'SEU MSc Student', 'ENFJ-A'],
     btn_github: '⌥ GitHub',
     github_modal_label: 'Open Source',
@@ -737,17 +725,18 @@ const i18n = {
     proj3_link: '即将开放',
     share_bio: '"建立最小的理想主义"<br>/随便写点什么<br>/ENFJ生活艺术家',
     exp1_role: '落地页产品实习生',
-    exp2_role: '产品运营实习生 · 商品研究中心',
-    exp2_desc: '客服机器人项目：精准定位用户痛点，推动 COACH 品牌客服解决率提升 10.2%，客诉率下降 8.5%。科普内容搭建：自主设计图文模板及发布 SOP，Q4 累计发布 73 篇内容，总曝光 43.4 万+。舆情跟踪：设计舆情分级标准与闭环流程，Q4 累计解决舆情 1679 条，环比下降 38%。',
+    exp1_desc: '在SHEIN担任营销落地页产品实习生期间，创新利用 Claude Code 与 Figma MCP 工具链重构全链路竞品监控工作流，成功推动近 10 项核心页面组件优化需求进入 PRD 评审与研发排期。',
+    exp2_role: '产品运营实习生',
+    exp2_desc: '在得物担任产品运营实习生期间，参与客服机器人项目和站外舆情跟踪项目，通过深挖海量客诉工单并将其中的非结构化痛点抽象为标准化需求，参与智能客服机器人问答规则配置与功能落地，成功推动重点品牌客诉率下降。',
     edu1_school: '东南大学（985）',
     edu1_degree: '经济管理学院 · 会计专业硕士',
     edu2_school: '南京信息工程大学（双一流）',
     edu2_degree: '商学院 · 会计学学士',
-    edu2_honors: '专业排名：1/105 · GPA：4.23/5 · CET4：577 · CET6：547<br>🏅 国家奖学金（综测第一）· 校长奖学金 · 连续两年校一等奖学金 · 校三好学生标兵 · 校优秀学生干部',
+    edu2_honors: '专业排名：1/105 · GPA：4.23/5<br>国家奖学金· 校长奖学金等',
     skill_cat1: '数据分析', skill_cat2: '可视化 & 设计',
     skill_cat3: 'AI 工具', skill_cat4: '办公协作',
+    contact_github: 'GitHub 主页',
     contact_desc: '正在寻找产品/AI方向实习岗位。如有机会或想交流，欢迎联系！',
-    form_name: '姓名', form_email: '邮箱', form_msg: '留言', form_send: '发送消息 →',
     typing_roles: ['产品构建者', 'AI爱好者', '东南大学硕士在读', 'ENFJ-A'],
     btn_github: '⌥ GitHub',
     github_modal_label: '开源项目',
@@ -850,17 +839,6 @@ function initReveal() {
 
 document.querySelectorAll('.project-card').forEach((card, i) => { card.style.transitionDelay = (i * 0.1) + 's'; });
 document.querySelectorAll('.tl-item').forEach((item, i) => { item.style.transitionDelay = (i * 0.07) + 's'; });
-
-// ── CONTACT FORM ──
-function sendMsg() {
-  const name = document.getElementById('f-name').value;
-  const email = document.getElementById('f-email').value;
-  const msg = document.getElementById('f-msg').value;
-  if (!name || !email || !msg) { alert('请填写所有字段 / Please fill in all fields.'); return; }
-  const subject = encodeURIComponent(`Message from ${name} via portfolio`);
-  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
-  window.open(`mailto:1731863264@qq.com?subject=${subject}&body=${body}`);
-}
 
 // ── RESUME DOWNLOAD ──
 function downloadResume() {
@@ -1321,6 +1299,35 @@ const savedLang = localStorage.getItem('tw-lang') || 'zh';
 setLang(savedLang);
 initParticles();
 initReveal();
+</script>
+
+<script type="module">
+import { createBallpit } from './ballpit.js';
+
+const ballpitCanvas = document.getElementById('ballpit-canvas');
+if (ballpitCanvas) {
+  const ballpit = createBallpit(ballpitCanvas, {
+    count: 20,
+    gravity: 0.01,
+    friction: 0.9975,
+    wallBounce: 0.95,
+    followCursor: true,
+    minSize: 0.25,
+    maxSize: 0.6,
+    size0: 0.7,
+    maxVelocity: 0.12,
+    colors: [0xfef3c7, 0xe8782a, 0xfefaf5, 0xfde68a, 0xffedd5],
+    ambientColor: 0xfffaf0,
+    ambientIntensity: 2.5,
+    lightIntensity: 120,
+    materialParams: {
+      metalness: 0.1,
+      roughness: 0.6,
+      clearcoat: 0.3,
+      clearcoatRoughness: 0.5
+    }
+  });
+}
 </script>
 
 </body>
