@@ -26,9 +26,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23231c15'/><text x='16' y='25' font-family='Georgia,serif' font-size='23' font-style='italic' font-weight='700' fill='%23e8782a' text-anchor='middle'>Z</text></svg>">
-<script type="importmap">
-{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/examples/jsm/environments/RoomEnvironment.js": "https://unpkg.com/three@0.160.0/examples/jsm/environments/RoomEnvironment.js" } }
-</script>
 
 <style>
 :root {
@@ -1301,31 +1298,185 @@ initParticles();
 initReveal();
 </script>
 
-<script type="module">
-import { createBallpit } from './ballpit.js';
+<script>
+// ── Canvas 2D Ballpit ──
+(function() {
+  const canvas = document.getElementById('ballpit-canvas');
+  if (!canvas) return;
 
-const ballpitCanvas = document.getElementById('ballpit-canvas');
-if (ballpitCanvas) {
-  const ballpit = createBallpit(ballpitCanvas, {
-    count: 20,
-    gravity: 0.01,
-    friction: 0.9975,
-    wallBounce: 0.95,
-    followCursor: true,
-    minSize: 0.25,
-    maxSize: 0.6,
-    size0: 0.7,
-    maxVelocity: 0.12,
-    colors: [0xfef3c7, 0xe8782a, 0xfefaf5, 0xfde68a, 0xffedd5],
-    ambientColor: 0xfffaf0,
-    ambientIntensity: 2.5,
-    lightIntensity: 120,
-    materialParams: {
-      metalness: 0.05,
-      roughness: 0.55
+  const ctx = canvas.getContext('2d');
+  const COLORS = ['#fef3c7', '#e8782a', '#fefaf5', '#fde68a', '#ffedd5', '#f5d0a9', '#fed7aa', '#fef08a'];
+  const BALL_COUNT = 18;
+  const GRAVITY = 0.08;
+  const FRICTION = 0.995;
+  const CURSOR_FORCE = 0.8;
+  const CURSOR_RADIUS = 120;
+  const MIN_R = 6;
+  const MAX_R = 18;
+
+  let balls = [];
+  let mouse = { x: -999, y: -999, active: false };
+  let animId;
+
+  function resize() {
+    const parent = canvas.parentElement;
+    const w = parent.offsetWidth;
+    const h = parent.offsetHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+  }
+
+  function createBalls() {
+    const w = canvas.parentElement.offsetWidth;
+    const h = canvas.parentElement.offsetHeight;
+    balls = [];
+    for (let i = 0; i < BALL_COUNT; i++) {
+      balls.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 1.5,
+        vy: (Math.random() - 0.5) * 1.5,
+        r: MIN_R + Math.random() * (MAX_R - MIN_R),
+        color: COLORS[Math.floor(Math.random() * COLORS.length)]
+      });
+    }
+  }
+
+  function update() {
+    const w = canvas.parentElement.offsetWidth;
+    const h = canvas.parentElement.offsetHeight;
+
+    for (const b of balls) {
+      b.vy += GRAVITY;
+      b.vx *= FRICTION;
+      b.vy *= FRICTION;
+      b.x += b.vx;
+      b.y += b.vy;
+
+      // Wall bounce
+      if (b.x - b.r < 0) { b.x = b.r; b.vx *= -0.7; }
+      if (b.x + b.r > w) { b.x = w - b.r; b.vx *= -0.7; }
+      if (b.y - b.r < 0) { b.y = b.r; b.vy *= -0.7; }
+      if (b.y + b.r > h) { b.y = h - b.r; b.vy *= -0.7; }
+
+      // Cursor repulsion
+      if (mouse.active) {
+        const dx = b.x - mouse.x;
+        const dy = b.y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < CURSOR_RADIUS && dist > 0.01) {
+          const force = (1 - dist / CURSOR_RADIUS) * CURSOR_FORCE;
+          b.vx += (dx / dist) * force;
+          b.vy += (dy / dist) * force;
+        }
+      }
+    }
+
+    // Ball-ball collision
+    for (let i = 0; i < balls.length; i++) {
+      for (let j = i + 1; j < balls.length; j++) {
+        const a = balls[i], b = balls[j];
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const minDist = a.r + b.r;
+        if (dist < minDist && dist > 0.01) {
+          const nx = dx / dist, ny = dy / dist;
+          const overlap = minDist - dist;
+          a.x -= nx * overlap * 0.5;
+          a.y -= ny * overlap * 0.5;
+          b.x += nx * overlap * 0.5;
+          b.y += ny * overlap * 0.5;
+          const relVel = (a.vx - b.vx) * nx + (a.vy - b.vy) * ny;
+          if (relVel > 0) {
+            a.vx -= nx * relVel * 0.5;
+            a.vy -= ny * relVel * 0.5;
+            b.vx += nx * relVel * 0.5;
+            b.vy += ny * relVel * 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  function draw() {
+    const w = canvas.parentElement.offsetWidth;
+    const h = canvas.parentElement.offsetHeight;
+    ctx.clearRect(0, 0, w, h);
+
+    for (const b of balls) {
+      // Main fill
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fillStyle = b.color;
+      ctx.fill();
+
+      // Highlight
+      const grad = ctx.createRadialGradient(b.x - b.r * 0.3, b.y - b.r * 0.3, b.r * 0.1, b.x, b.y, b.r);
+      grad.addColorStop(0, 'rgba(255,255,255,0.35)');
+      grad.addColorStop(0.5, 'rgba(255,255,255,0.05)');
+      grad.addColorStop(1, 'rgba(0,0,0,0.08)');
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+    }
+  }
+
+  function loop() {
+    update();
+    draw();
+    animId = requestAnimationFrame(loop);
+  }
+
+  // Mouse tracking on parent container
+  const parent = canvas.parentElement;
+  parent.addEventListener('mousemove', function(e) {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+  });
+  parent.addEventListener('mouseleave', function() { mouse.active = false; });
+  parent.addEventListener('mouseenter', function(e) {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+  });
+
+  // Touch support
+  parent.addEventListener('touchmove', function(e) {
+    if (e.touches.length > 0) {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.touches[0].clientX - rect.left;
+      mouse.y = e.touches[0].clientY - rect.top;
+      mouse.active = true;
+    }
+  }, { passive: true });
+  parent.addEventListener('touchend', function() { mouse.active = false; });
+
+  // Initialize
+  resize();
+  createBalls();
+  loop();
+
+  // Resize handling
+  window.addEventListener('resize', function() {
+    resize();
+    // Reposition balls if needed
+    const w = parent.offsetWidth;
+    const h = parent.offsetHeight;
+    for (const b of balls) {
+      if (b.x > w) b.x = w - b.r;
+      if (b.y > h) b.y = h - b.r;
     }
   });
-}
+})();
 </script>
 
 </body>
