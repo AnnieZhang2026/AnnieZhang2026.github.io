@@ -2,13 +2,12 @@
 // Converted from React to vanilla for direct use
 
 import {
-  Vector3, MeshPhysicalMaterial, InstancedMesh, Clock,
-  AmbientLight, SphereGeometry, ShaderChunk, Scene,
+  Vector3, MeshStandardMaterial, InstancedMesh, Clock,
+  AmbientLight, SphereGeometry, Scene,
   Color, Object3D, SRGBColorSpace, MathUtils,
-  PMREMGenerator, Vector2, WebGLRenderer, PerspectiveCamera,
+  Vector2, WebGLRenderer, PerspectiveCamera,
   PointLight, ACESFilmicToneMapping, Plane, Raycaster
 } from 'three';
-import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 
 // ── ThreeCanvas ──
 class ThreeCanvas {
@@ -218,7 +217,6 @@ function onTouchMove(e) {
     }
     if (insideAny) e.preventDefault();
   }
-  }
 }
 function onTouchEnd() {
   for (const [, t] of interactionMap) { if (t.touching) { t.touching = false; if (t.hover) { t.hover = false; t.onLeave(t); } } }
@@ -334,7 +332,7 @@ class Physics {
         }
       }
       if (config.controlSphere0) {
-        _vJ.copy(_vA.setFromArray(positionData, 0)).sub(_vA);
+        _vJ.fromArray(positionData, 0).sub(_vA);
         const dist0 = _vJ.length();
         const sumRadius0 = radius + sizeData[0];
         if (dist0 < sumRadius0) {
@@ -368,37 +366,6 @@ class Physics {
   }
 }
 
-// ── SubsurfaceMaterial ──
-class SubsurfaceMaterial extends MeshPhysicalMaterial {
-  constructor(params) {
-    super(params);
-    this.uniforms = {
-      thicknessDistortion: { value: 0.1 },
-      thicknessAmbient: { value: 0 },
-      thicknessAttenuation: { value: 0.1 },
-      thicknessPower: { value: 2 },
-      thicknessScale: { value: 10 }
-    };
-    this.defines.USE_UV = '';
-    this.onBeforeCompile = shader => {
-      Object.assign(shader.uniforms, this.uniforms);
-      shader.fragmentShader =
-        '\n        uniform float thicknessPower;\n        uniform float thicknessScale;\n        uniform float thicknessDistortion;\n        uniform float thicknessAmbient;\n        uniform float thicknessAttenuation;\n      ' +
-        shader.fragmentShader;
-      shader.fragmentShader = shader.fragmentShader.replace(
-        'void main() {',
-        '\n        void RE_Direct_Scattering(const in IncidentLight directLight, const in vec2 uv, const in vec3 geometryPosition, const in vec3 geometryNormal, const in vec3 geometryViewDir, const in vec3 geometryClearcoatNormal, inout ReflectedLight reflectedLight) {\n          vec3 scatteringHalf = normalize(directLight.direction + (geometryNormal * thicknessDistortion));\n          float scatteringDot = pow(saturate(dot(geometryViewDir, -scatteringHalf)), thicknessPower) * thicknessScale;\n          #ifdef USE_COLOR\n            vec3 scatteringIllu = (scatteringDot + thicknessAmbient) * vColor;\n          #else\n            vec3 scatteringIllu = (scatteringDot + thicknessAmbient) * diffuse;\n          #endif\n          reflectedLight.directDiffuse += scatteringIllu * thicknessAttenuation * directLight.color;\n        }\n\n        void main() {\n      '
-      );
-      const lightsBegin = ShaderChunk.lights_fragment_begin.replaceAll(
-        'RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );',
-        '\n          RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );\n          RE_Direct_Scattering(directLight, vUv, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, reflectedLight);\n        '
-      );
-      shader.fragmentShader = shader.fragmentShader.replace('#include <lights_fragment_begin>', lightsBegin);
-      if (this.onBeforeCompile2) this.onBeforeCompile2(shader);
-    };
-  }
-}
-
 // ── Default config ──
 const defaultConfig = {
   count: 200,
@@ -406,7 +373,7 @@ const defaultConfig = {
   ambientColor: 0xffffff,
   ambientIntensity: 1,
   lightIntensity: 200,
-  materialParams: { metalness: 0.5, roughness: 0.5, clearcoat: 1, clearcoatRoughness: 0.15 },
+  materialParams: { metalness: 0.1, roughness: 0.5 },
   minSize: 0.5, maxSize: 1, size0: 1,
   gravity: 0.5, friction: 0.9975, wallBounce: 0.95, maxVelocity: 0.15,
   maxX: 5, maxY: 5, maxZ: 2,
@@ -419,11 +386,8 @@ const dummyObj = new Object3D();
 class BallpitMesh extends InstancedMesh {
   constructor(renderer, config = {}) {
     const cfg = { ...defaultConfig, ...config };
-    const pmrem = new PMREMGenerator(renderer);
-    const envMap = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
     const geom = new SphereGeometry();
-    const mat = new SubsurfaceMaterial({ envMap, ...cfg.materialParams });
-    mat.envMapRotation.x = -Math.PI / 2;
+    const mat = new MeshStandardMaterial(cfg.materialParams);
     super(geom, mat, cfg.count);
     this.config = cfg;
     this.physics = new Physics(cfg);
@@ -527,7 +491,7 @@ export function createBallpit(canvas, config = {}) {
     three.scene.add(spheres);
   }
 
-  three.onBeforeRender = (time) => { if (!paused) spheres.update(time); };
+  three.onBeforeRender = (time) => { if (!paused) spheres.update(time.delta); };
   three.onAfterResize = (size) => {
     spheres.config.maxX = size.wWidth / 2;
     spheres.config.maxY = size.wHeight / 2;
